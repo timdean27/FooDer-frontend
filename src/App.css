@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
+
+body {
+  background-color: mintcream
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.main-card-container {
+	text-align: center;
+	max-width: 500px;
+	margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+header {
+	background-color: red;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 5px;
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.displayedGFood-photo img {
+	overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.displayedGFood .displayedGFood-description {
+	text-align: left;
+	padding: 20px;
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+	border-radius: 1px;
+	background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.displayedGFood .displayedGFood-name-display {
+	font-weight: bold;
+	font-size: 30px;
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+
+
+.displayedGFood img {
+	width: 500px;
+	height: 600px;
+	display: block;
+	object-fit: cover;
+}
+
+#actions {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+
+
+.Selected-GFoods-Container {
+	padding: 10px;
+	background-color: white;
+}
+
+.GFoods-Box {
+	margin: auto;
+	overflow: hidden;
+}
+
+.GFoods-Box .single-Gfood {
+	display: inline-block;
+	width: 33%;
+	margin-top: 10px;
+}
+
+
+.GFoods-Box .single-Gfood-image img {
+	width: 140px;
+	height: 100px;
+	object-fit: cover;
+	object-position: 50% 50%;
 }
