@@ -2,7 +2,7 @@ import React, { useState , useEffect} from 'react'
 import { Routes, Route , useParams, useNavigate, Link  } from 'react-router-dom';
 
 
-const CheckRestaurants = ({likedFoods , dislikedFoods}) => {
+const CheckRestaurants = ({likedFoods , dislikedFoods, searchPrice, searchLocation}) => {
   const { id } = useParams()
   console.log("likedFoods" ,likedFoods)
   console.log("dislikedFoods",dislikedFoods)
@@ -18,10 +18,16 @@ const CheckRestaurants = ({likedFoods , dislikedFoods}) => {
     let FoodSearchName = FoodSearchForOBJ[0].name
     let FoodSearchID = FoodSearchForOBJ[0].id
     let FoodSearchIMG = FoodSearchForOBJ[0].image
+    let encodeFood = encodeURI(FoodSearchName)
+    let encodeLocation = encodeURI(searchLocation)
 
+    
   return (
     <div>
       <h1>Running Search for Restaurants that got '{FoodSearchName}'</h1>
+      <h1>Showing Restaurants in price of {searchPrice}</h1>
+      <h1>Showing Restaurants around {searchLocation}</h1>
+      
     </div>
   )
 }

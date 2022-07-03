@@ -14,6 +14,19 @@ const Home = () => {
   const [searchPrice, setSearchPrice] = useState()
   const [searchLocation, setSearchLocation] = useState()
 
+  const priceChange = (event) => {
+    event.preventDefault()
+    setSearchPrice(event.target.value);
+}
+console.log("searchPrice",searchPrice)
+const locationChange = (event) => {
+  event.preventDefault()
+  setSearchLocation(event.target.value);
+}
+console.log("searchLocation",searchLocation)
+
+
+///logic for Selcting food cards
   const [generalFoods, setGeneralFoods] = useState(data);
   const [likedFoods, setLikedFoods] = useState([]);
   const [dislikedFoods, setDislikedFoods] = useState([]);
@@ -52,7 +65,7 @@ const Home = () => {
 };
   return (
     <div>
-    <Header />
+    <Header/>
           <div className="main-card-container">
           <Routes>
           {(likedFoods.length < 3)?
@@ -83,10 +96,15 @@ const Home = () => {
                 path='/Restaurants/:id'
                 element = {<CheckRestaurants  
                   likedFoods={likedFoods}
-                  dislikedFoods ={dislikedFoods}/>}
+                  dislikedFoods ={dislikedFoods}
+                  searchPrice={searchPrice}
+                  searchLocation={searchLocation}/>}
             />
           </Routes>
-          <Price_Loc_sellec/>
+          <Price_Loc_sellec 
+          priceChange={priceChange}
+          locationChange={locationChange}
+          />
           </div>
     </div>
     

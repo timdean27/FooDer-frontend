@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from 'react'
 import { Routes, Route , useParams, useNavigate, Link  } from 'react-router-dom';
 
-import CheckRestaurants from "../Pages/CheckRestaurants/CheckRestaurants"
+
 
 const ShowPickedGFood = ({likedFoods , dislikedFoods}) => {
   return (
@@ -19,7 +19,7 @@ const ShowPickedGFood = ({likedFoods , dislikedFoods}) => {
             />
           </div>
           <Link  to={`/Restaurants/${Gfood.id}`}>
-          <button>View Restaurants That sell this</button>
+          <button>Yummy! Lets see where i can get some {Gfood.name}</button>
         </Link>
         
         </div>

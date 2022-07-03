@@ -27,7 +27,7 @@ const PickFood = ({ displayedGFood, adjustGeneralFoodList }) => {
       type="button"
       onClick={() => adjustGeneralFoodList(displayedGFood.id, 'case1SelectFood')}
       >
-      Yummy! Lets see where to buy some {displayedGFood.name}
+      Looks Good, I'll consider some {displayedGFood.name}
     </button>
   </>
   )

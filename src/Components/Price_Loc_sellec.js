@@ -1,10 +1,21 @@
 import React, { useState , useEffect} from 'react'
-import { Routes, Route , useParams, useNavigate, Link  } from 'react-router-dom';
 
-const Price_Loc_sellec = () => {
+
+const Price_Loc_sellec = ({priceChange, locationChange}) => {
+   
   return (
-    <div>
-    <input type="range" class="form-range" min="1" max="4" id="customRange2"></input>
+    <div className="price-slide-container">
+        <div className="DollarLogos">
+            <h3>$</h3><h3>$$</h3><h3>$$$</h3><h3>$$$$</h3>
+        </div>
+    <input type="range" className="form-control-range" id="formControlRange" min="1" max="4"
+        onChange={priceChange}
+        >
+    </input>
+    <input type="text" placeholder="Input the location you would like to search"
+        onChange={locationChange}
+        >
+    </input>
     </div>
   )
 }

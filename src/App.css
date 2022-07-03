@@ -84,3 +84,16 @@ header {
 	object-fit: cover;
 	object-position: 50% 50%;
 }
+
+
+/* Price_Loc_sellec */
+.price-slide-container{
+	display: flex;
+	flex-direction: column;
+}
+.DollarLogos{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:space-between;
+}
