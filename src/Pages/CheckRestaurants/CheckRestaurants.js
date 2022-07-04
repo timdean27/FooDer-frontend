@@ -8,15 +8,15 @@ const CheckRestaurants = ({likedFoods , dislikedFoods, searchPrice, searchLocati
   console.log("dislikedFoods",dislikedFoods)
   let FoodSearchForOBJ = []
   likedFoods.map((foodWeWant) => {
-      console.log("foodWeWant.id", foodWeWant.id)
-      if(foodWeWant.id == id) {
+      console.log("foodWeWant.id_", foodWeWant.id_)
+      if(foodWeWant.id_ == id) {
         FoodSearchForOBJ.push(foodWeWant)
         console.log("FoodSearchForOBJ", FoodSearchForOBJ)
         return FoodSearchForOBJ
       }
     })
     let FoodSearchName = FoodSearchForOBJ[0].name
-    let FoodSearchID = FoodSearchForOBJ[0].id
+    let FoodSearchID = FoodSearchForOBJ[0].id_
     let FoodSearchIMG = FoodSearchForOBJ[0].image
     let encodeFood = encodeURI(FoodSearchName)
     let encodeLocation = encodeURI(searchLocation)
@@ -24,7 +24,7 @@ const CheckRestaurants = ({likedFoods , dislikedFoods, searchPrice, searchLocati
     
   return (
     <div>
-      <h1>Running Search for Restaurants that got '{FoodSearchName}'</h1>
+      <h1>Running Search for Restaurants that got '{FoodSearchName}' with id {FoodSearchID}</h1>
       <h1>Showing Restaurants in price of {searchPrice}</h1>
       <h1>Showing Restaurants around {searchLocation}</h1>
       

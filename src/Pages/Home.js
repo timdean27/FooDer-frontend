@@ -33,7 +33,7 @@ console.log("searchLocation",searchLocation)
   let current_food_option = 0
 
   const removedPickFood = (generalFoodsSource, displayedGFoodID) =>
-    generalFoodsSource.filter(removeFood => removeFood.id !== displayedGFoodID);
+    generalFoodsSource.filter(removeFood => removeFood.id_ !== displayedGFoodID);
 
   const adjustGeneralFoodList = (displayedGFoodID, action) => {
     const newgeneralFoods = [...generalFoods];
@@ -74,7 +74,7 @@ console.log("searchLocation",searchLocation)
             path='/'
               element ={
                       <PickFood
-                      key={generalFoods[0].id}
+                      key={generalFoods[0].id_}
                       displayedGFood={generalFoods[0]}
                       adjustGeneralFoodList={adjustGeneralFoodList}
                     />
