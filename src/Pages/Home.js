@@ -11,10 +11,11 @@ import Price_Loc_sellec from '../Components/Price_Loc_sellec'
 
 
 const Home = () => {
-  const [searchPrice, setSearchPrice] = useState()
+  const [searchPrice, setSearchPrice] = useState("1")
   const [searchLocation, setSearchLocation] = useState()
+  const [searchRadius, setSearchRadius] = useState(8049)
 
-  const priceChange = (event) => {
+const priceChange = (event) => {
     event.preventDefault()
     setSearchPrice(event.target.value);
 }
@@ -25,6 +26,14 @@ const locationChange = (event) => {
 }
 console.log("searchLocation",searchLocation)
 
+const radiusChange = (event) => {
+  event.preventDefault()
+  let miles = parseInt(event.target.value)
+  console.log("miles",miles)
+  let meters = ((miles*5280)/3.28)
+  setSearchRadius(meters);
+}
+console.log("searchRadius",searchRadius)
 
 ///logic for Selcting food cards
   const [generalFoods, setGeneralFoods] = useState(data);
@@ -35,12 +44,12 @@ console.log("searchLocation",searchLocation)
   const removedPickFood = (generalFoodsSource, displayedGFoodID) =>
     generalFoodsSource.filter(removeFood => removeFood.id_ !== displayedGFoodID);
 
-  const adjustGeneralFoodList = (displayedGFoodID, action) => {
+  const adjustGeneralFoodList = (displayedGFoodID, casePicked) => {
     const newgeneralFoods = [...generalFoods];
     const newLikedFoods = [...likedFoods];
     const newDislikedFoods = [...dislikedFoods];
 
-    switch (action) {
+    switch (casePicked) {
       case 'case1SelectFood':
         if (!generalFoods[current_food_option].Liked_Foods.includes(displayedGFoodID)) {
           newgeneralFoods[current_food_option].Liked_Foods.push(displayedGFoodID);
@@ -98,12 +107,15 @@ console.log("searchLocation",searchLocation)
                   likedFoods={likedFoods}
                   dislikedFoods ={dislikedFoods}
                   searchPrice={searchPrice}
-                  searchLocation={searchLocation}/>}
+                  searchLocation={searchLocation}
+                  searchRadius={searchRadius}
+                  />}
             />
           </Routes>
           <Price_Loc_sellec 
           priceChange={priceChange}
           locationChange={locationChange}
+          radiusChange={radiusChange}
           />
           </div>
     </div>

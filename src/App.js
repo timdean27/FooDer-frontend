@@ -16,12 +16,12 @@ const App = () => {
 // // const [location,setLocation] = useState({location: 'New York'})
 // // const [price,setPrice] = useState({price : 2})
 
-// const [searchParams, setSearchParams] = useState({term: 'Pizza', location: 'New York', price : 2});
-// const [businesses, setBusinesses] = useState([]);
+// const [searchCriteria, setSearchCriteria] = useState({term: 'Pizza', location: 'New York', price : 2});
+// const [restaurants, setRestaurants] = useState([]);
   
 
-// async function getResturantsData(path,searchParams) {
-//   const query = queryString.stringify(searchParams);
+// async function getResturantsData(path,searchCriteria) {
+//   const query = queryString.stringify(searchCriteria);
 //   await fetch(`${API_BASE_URL}${path}?${query}`, {
 //             headers: {
 //                 Authorization: `Bearer ${API_KEY}`,
@@ -32,13 +32,13 @@ const App = () => {
 
 //       console.log('data insisde fetch funciton', data)
       
-//        setBusinesses(data)
+//        setRestaurants(data)
 //     })
 //   }
 
 //   useEffect(() => {
-//     getResturantsData('/businesses/search',searchParams)
-//   }, [searchParams])
+//     getResturantsData('/businesses/search',searchCriteria)
+//   }, [searchCriteria])
 
 
   return (

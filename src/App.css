@@ -21,21 +21,26 @@ header {
 	padding: 10px 5px;
 	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
 }
+.displayedGFood{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-
-.displayedGFood-photo img {
-	overflow: hidden;
 }
 
-.displayedGFood .displayedGFood-description {
+.displayedGFood-photo{
+	overflow: hidden;
+
+}
+
+.displayedGFood-description {
 	text-align: left;
+	width: 300px;
 	padding: 20px;
-	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
-	border-radius: 1px;
 	background-color: white;
 }
 
-.displayedGFood .displayedGFood-name-display {
+.displayedGFood-name-display {
 	font-weight: bold;
 	font-size: 30px;
 	margin-bottom: 10px;
@@ -44,21 +49,11 @@ header {
 
 
 .displayedGFood img {
-	width: 500px;
-	height: 600px;
+	width: 300px;
+	height: 400px;
 	display: block;
 	object-fit: cover;
 }
-
-#actions {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: 10px;
-}
-
 
 
 .Selected-GFoods-Container {
@@ -96,4 +91,15 @@ header {
 	flex-direction: row;
 	align-items: center;
 	justify-content:space-between;
+}
+.tick-markers{
+	display: flex;
+	justify-content:space-between;
+}
+.tick {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 1px;
+	background: gray;
 }
