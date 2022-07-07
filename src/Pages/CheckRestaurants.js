@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import queryString from "query-string";
 
+import PickRestaurants from "../Components/PickRestaurants/PickRestaurants"
+
 const CheckRestaurants = ({
   likedFoods,
   dislikedFoods,
@@ -42,7 +44,7 @@ const CheckRestaurants = ({
 
   const loadedTerm = () => {
     if (searchCriteria.term === "") {
-      setSearchCriteria({
+       setSearchCriteria({
         term: FoodSearchForOBJ.name,
         location: searchLocation,
         price: searchPrice,
@@ -50,16 +52,6 @@ const CheckRestaurants = ({
       });
       console.log("searchCriteria", searchCriteria);
     }
-    return (
-      <div>
-        <h1>
-          Running Search for Restaurants that got '{FoodSearchForOBJ.name}'
-        </h1>
-        <h1>Showing Restaurants in price of {searchPrice}</h1>
-        <h1>Showing Restaurants around {searchLocation}</h1>
-        <h1>Showing Restaurants around {searchRadius} or { Math.round((searchRadius / 5280)*3.28)} miles</h1>
-      </div>
-    );
   };
 
   const loading = () => {
@@ -72,40 +64,59 @@ const CheckRestaurants = ({
   // const YELP_API_KEY = process.env.YELP_API_KEY
 
   ////////////////////////////////////////////////////////////////
+// const [searchCriteria, setSearchCriteria] = useState({term: 'Pizza', location: 'New York', price : 2 , radius: 8049});
 
-  // const [searchCriteria, setSearchCriteria] = useState({term: 'Pizza', location: 'New York', price : 2 , radius: 8049});
-  // const [restaurantsDATA, setRestaurantsDATA] = useState([]);
 
-  // async function getResturantsData(path,searchCriteria) {
-  //   const searchQuery = queryString.stringify(searchCriteria);
-  //   await fetch(`${API_BASE_URL}${path}?${searchQuery}`, {
-  //             headers: {
-  //                 Authorization: `Bearer ${YELP_API_KEY}`,
-  //                 Origin: 'localhost',
-  //                 withCredentials: true,
-  //             }
-  //         }).then((res) => res.json()).then((data) => {
+// const [restaurantsDATA, setRestaurantsDATA] = useState([]);
 
-  //       console.log('data insisde fetch funciton', data)
+//   async function getResturantsData(path,searchCriteria) {
+//     const searchQuery = queryString.stringify(searchCriteria);
+//     await fetch(`${API_BASE_URL}${path}?${searchQuery}`, {
+//               headers: {
+//                   Authorization: `Bearer ${YELP_API_KEY}`,
+//                   Origin: 'localhost',
+//                   withCredentials: true,
+//               }
+//           }).then((res) => res.json()).then((data) => {
 
-  //        setRestaurantsDATA(data)
-  //     })
-  //   }
+//         console.log('data insisde fetch funciton', data)
+
+//          setRestaurantsDATA(data)
+//       })
+//     }
 
   // useEffect(() => {
   //   getResturantsData('/businesses/search',searchCriteria)
   // }, [searchCriteria])
   ////////////////////////////////////////////////////////////////
 
-  // const makeAPICall = () =>{
-  //   console.log("searchCriteria from inside make API CALL",searchCriteria )
-  //     getResturantsData('/businesses/search',searchCriteria)
-  // }
+// console.log("restaurants data length", Object.keys(restaurantsDATA).length)
+//   const makeAPICall = () =>{
+//     console.log("searchCriteria from inside make API CALL",searchCriteria )
+//       getResturantsData('/businesses/search',searchCriteria)
+//       return <h1> loading API</h1>;
+//   }
+
+// const callMadeShowCards = () =>{
+// return (
+//   <div>
+//     <PickRestaurants
+//     FoodSearchForOBJ={FoodSearchForOBJ}  
+//     searchPrice={searchPrice}
+//     searchLocation ={searchLocation}
+//     searchRadius={searchRadius}
+//     restaurantsDATA = {restaurantsDATA}
+//     />
+//   </div>
+// );
+// }
+
   //////////////////////////////////////////////////////API CALL
 
   return (
     <div>
       {Object.keys(FoodSearchForOBJ).length !== 0 ? loadedTerm() : loading()}
+      {(Object.keys(FoodSearchForOBJ).length !== 0 && searchCriteria.term !== "" && Object.keys(restaurantsDATA).length === 0 )? makeAPICall() : callMadeShowCards()}
     </div>
   );
 };

@@ -4,18 +4,19 @@ import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import data from "../data.json";
 
 import Header from "../Components/Header";
-import PickFood from "../Components/FirstPickOptions/PickFood";
+import PickFood from "../Components/PickFoodFL/PickFood";
 import ShowPickedGFood from "../Components/ShowPickedGFoods";
-import CheckRestaurants from "./CheckRestaurants/CheckRestaurants";
+import CheckRestaurants from "./CheckRestaurants";
 
 const Home = () => {
-  const [searchPrice, setSearchPrice] = useState("1");
+  const [searchPrice, setSearchPrice] = useState(1);
   const [searchLocation, setSearchLocation] = useState();
   const [searchRadius, setSearchRadius] = useState(8049);
 
   const priceChange = (event) => {
     event.preventDefault();
-    setSearchPrice(event.target.value);
+    let newPrice = parseInt(event.target.value)
+    setSearchPrice(newPrice);
   };
   console.log("searchPrice", searchPrice);
   const locationChange = (event) => {
@@ -28,7 +29,7 @@ const Home = () => {
     event.preventDefault();
     let miles = parseInt(event.target.value);
     console.log("miles", miles);
-    let meters = (miles * 5280) / 3.28;
+    let meters = Math.round((miles * 5280) / 3.28);
     setSearchRadius(meters);
   };
   console.log("searchRadius", searchRadius);

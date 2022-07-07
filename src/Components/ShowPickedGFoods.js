@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
-import Price_Loc_sellec from "./FirstPickOptions/SubFirstPickOptions/Price_Loc_sellec";
+import Price_Loc_sellec from "./PickFoodFL/SubPickFood/Price_Loc_sellec";
 
 const ShowPickedGFood = ({ likedFoods, dislikedFoods , radiusChange, locationChange, priceChange, searchPrice,searchLocation,searchRadius }) => {
   return (

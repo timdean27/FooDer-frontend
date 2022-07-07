@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
-import Price_Loc_sellec from "./SubFirstPickOptions/Price_Loc_sellec";
+import Price_Loc_sellec from "./SubPickFood/Price_Loc_sellec";
 
 const PickFood = ({
   displayedGFood,
