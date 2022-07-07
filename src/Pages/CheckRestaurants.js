@@ -55,68 +55,76 @@ const CheckRestaurants = ({
   };
 
   const loading = () => {
-    return <h1> loading</h1>;
+    return <h1> loading #1 Failed to load Search criteria</h1>;
   };
 
   //////////////////////////////////////////////////////API CALL
 
-  // const API_BASE_URL = process.env.API_BASE_URL
-  // const YELP_API_KEY = process.env.YELP_API_KEY
-
+//   const API_BASE_URL = process.env.API_BASE_URL
+//   const YELP_API_KEY = process.env.YELP_API_KEY
+// if(process.env.YELP_API_KEY) { 
+//     console.log('It is set!'); 
+// }
+// else { 
+//     console.log('No set!'); 
+// }
   ////////////////////////////////////////////////////////////////
 // const [searchCriteria, setSearchCriteria] = useState({term: 'Pizza', location: 'New York', price : 2 , radius: 8049});
 
+const [restaurantsDATA, setRestaurantsDATA] = useState([]);
 
-// const [restaurantsDATA, setRestaurantsDATA] = useState([]);
+  async function getResturantsData(path,searchCriteria) {
+    const searchQuery = queryString.stringify(searchCriteria);
+    await fetch(`${API_BASE_URL}${path}?${searchQuery}`, {
+              headers: {
+                  Authorization: `Bearer ${YELP_API_KEY}`,
+                  Origin: 'localhost',
+                  withCredentials: true,
+              }
+          }).then((res) => res.json()).then((data) => {
 
-//   async function getResturantsData(path,searchCriteria) {
-//     const searchQuery = queryString.stringify(searchCriteria);
-//     await fetch(`${API_BASE_URL}${path}?${searchQuery}`, {
-//               headers: {
-//                   Authorization: `Bearer ${YELP_API_KEY}`,
-//                   Origin: 'localhost',
-//                   withCredentials: true,
-//               }
-//           }).then((res) => res.json()).then((data) => {
+        console.log('data insisde fetch funciton', data)
 
-//         console.log('data insisde fetch funciton', data)
-
-//          setRestaurantsDATA(data)
-//       })
-//     }
+         setRestaurantsDATA(data.businesses)
+      })
+    }
 
   // useEffect(() => {
   //   getResturantsData('/businesses/search',searchCriteria)
   // }, [searchCriteria])
   ////////////////////////////////////////////////////////////////
 
-// console.log("restaurants data length", Object.keys(restaurantsDATA).length)
-//   const makeAPICall = () =>{
-//     console.log("searchCriteria from inside make API CALL",searchCriteria )
-//       getResturantsData('/businesses/search',searchCriteria)
-//       return <h1> loading API</h1>;
-//   }
+console.log("restaurantsDATA .length", restaurantsDATA.length)
+console.log("restaurantsDATA", restaurantsDATA)
+  const makeAPICall = () =>{
+    console.log("searchCriteria from inside make API CALL",searchCriteria )
+      getResturantsData('/businesses/search',searchCriteria)
 
-// const callMadeShowCards = () =>{
-// return (
-//   <div>
-//     <PickRestaurants
-//     FoodSearchForOBJ={FoodSearchForOBJ}  
-//     searchPrice={searchPrice}
-//     searchLocation ={searchLocation}
-//     searchRadius={searchRadius}
-//     restaurantsDATA = {restaurantsDATA}
-//     />
-//   </div>
-// );
-// }
+  }
+  if (Object.keys(FoodSearchForOBJ).length !== 0 && searchCriteria.term !== "" && restaurantsDATA.length === 0){
+    makeAPICall()
+    return(<div><h1>Loading #2 Failed API Call</h1></div>)
+  }
+const callMadeShowCards = () =>{
+return (
+  <div>
+    <PickRestaurants
+    FoodSearchForOBJ={FoodSearchForOBJ}  
+    searchPrice={searchPrice}
+    searchLocation ={searchLocation}
+    searchRadius={searchRadius}
+    restaurantsDATA={restaurantsDATA}
+    />
+  </div>
+);
+}
 
   //////////////////////////////////////////////////////API CALL
 
   return (
     <div>
       {Object.keys(FoodSearchForOBJ).length !== 0 ? loadedTerm() : loading()}
-      {(Object.keys(FoodSearchForOBJ).length !== 0 && searchCriteria.term !== "" && Object.keys(restaurantsDATA).length === 0 )? makeAPICall() : callMadeShowCards()}
+      {(Object.keys(FoodSearchForOBJ).length !== 0 && searchCriteria.term !== "" && restaurantsDATA.length === 0 )? makeAPICall() : callMadeShowCards()}
     </div>
   );
 };

@@ -8,12 +8,12 @@ const PickRestaurants = ({
   searchRadius,
   restaurantsDATA,
 }) => {
-
+    console.log("restaurantsDATA inside PickRestaurants Page", restaurantsDATA)
 
   return (
     <div>
     <h1>From PickRestaurants</h1>
-    <h1>WE have Data!!!!</h1>
+    <h1>WE have Data!!!! and here is the proof  {restaurantsDATA[0].name}</h1>
     <Link to={`/`}>
     <button>Back to Food Options</button>
   </Link>
