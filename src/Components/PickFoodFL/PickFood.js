@@ -12,6 +12,8 @@ const PickFood = ({
   searchLocation,
   searchRadius,
 }) => {
+
+  
   return (
     <div>
       <div className="displayedGFood">

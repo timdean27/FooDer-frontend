@@ -2,7 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import Price_Loc_sellec from "./PickFoodFL/SubPickFood/Price_Loc_sellec";
 
-const ShowPickedGFood = ({ likedFoods, dislikedFoods , radiusChange, locationChange, priceChange, searchPrice,searchLocation,searchRadius }) => {
+const ShowPickedGFood = ({
+  likedFoods,
+  dislikedFoods,
+  radiusChange,
+  locationChange,
+  priceChange,
+  searchPrice,
+  searchLocation,
+  searchRadius,
+}) => {
+
+
+  
   return (
     <div className="Selected-GFoods-Container">
       <div className="GFoods-Box">
