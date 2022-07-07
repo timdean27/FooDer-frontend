@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
 
 body {
   background-color: mintcream
 }
-
 
 .main-card-container {
 	text-align: center;
@@ -21,6 +19,7 @@ header {
 	padding: 10px 5px;
 	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
 }
+
 .displayedGFood{
 	display: flex;
 	flex-direction: column;
@@ -55,7 +54,7 @@ header {
 	object-fit: cover;
 }
 
-
+/* ShowPickedGFoods */
 .Selected-GFoods-Container {
 	padding: 10px;
 	background-color: white;
@@ -102,4 +101,20 @@ header {
 	justify-content: center;
 	width: 1px;
 	background: gray;
+}
+
+/* Pick Restaurants */
+.PickRestaurants-mainCard{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+
+.PickRestaurants-img{
+	width: 300px;
+	height: 400px;
+	display: block;
+	object-fit: cover;
 }

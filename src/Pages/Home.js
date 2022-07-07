@@ -34,7 +34,7 @@ const Home = () => {
   };
   console.log("searchRadius", searchRadius);
 
-  ///logic for Selcting food cards
+///////////////logic for Selcting food cards
   const [generalFoods, setGeneralFoods] = useState(data);
   const [likedFoods, setLikedFoods] = useState([]);
   const [dislikedFoods, setDislikedFoods] = useState([]);
@@ -85,10 +85,12 @@ const Home = () => {
         return generalFoods;
     }
   };
+
+
   return (
     <div>
       <Header />
-      <div className="main-card-container">
+      <div >
         <Routes>
           {likedFoods.length < 3 ? (
             <Route
@@ -109,6 +111,7 @@ const Home = () => {
             />
           ) : (
             <Route
+            
               path="/"
               element={
                 <ShowPickedGFood
@@ -125,7 +128,7 @@ const Home = () => {
             />
           )}
 
-          <Route
+          <Route 
             path="/Restaurants/:id"
             element={
               <CheckRestaurants

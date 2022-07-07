@@ -9,23 +9,39 @@ const PickRestaurants = ({
   restaurantsDATA,
 }) => {
 
-    
+const [currentRestaurantIndex, setCurrentRestaurantIndex] = useState(0)
+const [singleViewRestuarant , setSingleViewRestuarant] = useState()
+
   console.log("restaurantsDATA inside PickRestaurants Page", restaurantsDATA);
+  console.log("FoodSearchForOBJ inside PickRestaurants Page", FoodSearchForOBJ);
+
+  
+const nextRestaurant =() => {
+let newcurrentRestaurantIndex = (currentRestaurantIndex +1)
+setCurrentRestaurantIndex(newcurrentRestaurantIndex)
+}
+
 
   return (
     <div>
+    <button>Back to Food Options</button>
+    <div className="PickRestaurants-mainCard">
       <h1>From PickRestaurants</h1>
-      <h1>WE have Data!!!! and here is the proof {restaurantsDATA[0].name}</h1>
+      <p>Running Search for Restaurants that got '{FoodSearchForOBJ.name}'</p>
+      <h1>{restaurantsDATA[currentRestaurantIndex].name}</h1>
+      <img src={restaurantsDATA[currentRestaurantIndex].image_url} alt={restaurantsDATA[currentRestaurantIndex].name} className="PickRestaurants-img"></img>
       <Link to={`/`}>
-        <button>Back to Food Options</button>
+        
       </Link>
-      <h2>Running Search for Restaurants that got '{FoodSearchForOBJ.name}'</h2>
-      <h2>Showing Restaurants in price of {searchPrice}</h2>
-      <h2>Showing Restaurants around {searchLocation}</h2>
-      <h2>
+      </div>
+      <p>Showing Restaurants in price of {searchPrice}</p>
+      <p>Showing Restaurants around {searchLocation}</p>
+      <p>
         Showing Restaurants around {searchRadius} or{" "}
         {(searchRadius / 5280) * 3.28} miles
-      </h2>
+      </p>
+      <button onClick={nextRestaurant}>Next Restaurant</button>
+    
     </div>
   );
 };

@@ -13,9 +13,10 @@ const PickFood = ({
   searchRadius,
 }) => {
 
-  
+
   return (
     <div>
+    <div className="main-card-container">
       <div className="displayedGFood">
         <div className="displayedGFood-photo">
           <img
@@ -45,6 +46,7 @@ const PickFood = ({
       >
         Looks Good, I'll consider some {displayedGFood.name}
       </button>
+      </div>
       <Price_Loc_sellec
         priceChange={priceChange}
         locationChange={locationChange}

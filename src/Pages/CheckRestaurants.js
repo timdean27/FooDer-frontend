@@ -70,6 +70,8 @@ const CheckRestaurants = ({
   ////////////////////////////////////////////////////////////////
   // const [searchCriteria, setSearchCriteria] = useState({term: 'Pizza', location: 'New York', price : 2 , radius: 8049});
 
+
+
   const [restaurantsDATA, setRestaurantsDATA] = useState([]);
 
   async function getResturantsData(path, searchCriteria) {
