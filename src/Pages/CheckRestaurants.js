@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import queryString from "query-string";
-
+import axios from "axios";
 import PickRestaurants from "../Components/PickRestaurants/PickRestaurants";
 
 const CheckRestaurants = ({
@@ -19,7 +19,7 @@ const CheckRestaurants = ({
   });
 
   const [FoodSearchForOBJ, setFoodSearchForOBJ] = useState([]);
-  const [apiError , setapiError] = useState("")
+  const [apiError, setapiError] = useState("");
   const { id } = useParams();
 
   const FoodSearchfunction = () => {
@@ -55,73 +55,45 @@ const CheckRestaurants = ({
     return <h1> loading #1 Failed to load Search criteria</h1>;
   };
 
-  //////////////////////////////////////////////////////API CALL
-
-  //   const API_BASE_URL = process.env.API_BASE_URL
-  //   const YELP_API_KEY = process.env.YELP_API_KEY
-  // if(process.env.YELP_API_KEY) {
-  //     console.log('It is set!');
-  // }
-  // else {
-  //     console.log('No set!');
-  // }
-  ////////////////////////////////////////////////////////////////
-  // const [searchCriteria, setSearchCriteria] = useState({term: 'Pizza', location: 'New York', price : 2 , radius: 8049});
-
-
-
   const [restaurantsDATA, setRestaurantsDATA] = useState([]);
 
-  async function getResturantsData(path, searchCriteria) {
+  async function getResturantsData() {
     const searchQuery = queryString.stringify(searchCriteria);
-    await fetch(`${API_BASE_URL}${path}?${searchQuery}`, {
-      
-      headers: {
-        Authorization: `Bearer ${YELP_API_KEY}`,
-        Origin: "localhost",
-        withCredentials: true,
-
-      },
-
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("data insisde fetch funciton", data);
-        setRestaurantsDATA(data.businesses);
+    const APISearch = {
+      method: "GET",
+      url: "http://localhost:3500/api",
+      params: { searchQuery },
+    };
+    await axios
+      .request(APISearch)
+      .then((res) => {
+        console.log("data insisde fetch funciton", res.data);
+        setRestaurantsDATA(res.data.businesses);
       })
       .catch((error) => {
-
-      console.log("error",error )
-        
+        console.log(error);
       });
   }
 
-  // useEffect(() => {
-  //   getResturantsData('/businesses/search',searchCriteria)
-  // }, [searchCriteria])
-  ////////////////////////////////////////////////////////////////
-
-  console.log("restaurantsDATA .length", restaurantsDATA.length);
-  console.log("restaurantsDATA", restaurantsDATA);
+  // console.log("restaurantsDATA .length", restaurantsDATA.length);
+  //console.log("restaurantsDATA", restaurantsDATA);
+  
+  
   const makeAPICall = () => {
     console.log("searchCriteria from inside make API CALL", searchCriteria);
     getResturantsData("/businesses/search", searchCriteria);
   };
-  if (
-    Object.keys(FoodSearchForOBJ).length !== 0 &&
-    searchCriteria.term !== "" &&
-    restaurantsDATA.length === 0
-  ) {
+  if (Object.keys(FoodSearchForOBJ).length !== 0 && searchCriteria.term !== "" && restaurantsDATA.length === 0) {
     makeAPICall();
     return (
       <div>
         <h1>Loading #2 Failed API Call</h1>
-          <button
-            href="https://cors-anywhere.herokuapp.com/corsdemo"
-            target="_blank"
-          >
-            Try Link and Unlocking cors anywhere
-          </button>
+        <button
+          href="https://cors-anywhere.herokuapp.com/corsdemo"
+          target="_blank"
+        >
+          Try Link and Unlocking cors anywhere
+        </button>
       </div>
     );
   }
