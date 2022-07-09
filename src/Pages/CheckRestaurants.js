@@ -59,13 +59,14 @@ const CheckRestaurants = ({
 
   async function getResturantsData() {
     const searchQuery = queryString.stringify(searchCriteria);
-    const APISearch = {
+    const path = "/businesses/search"
+    const ParamsTOBack = {
       method: "GET",
       url: "http://localhost:3500/api",
-      params: { searchQuery },
+      params: { searchQuery , path },
     };
     await axios
-      .request(APISearch)
+      .request(ParamsTOBack)
       .then((res) => {
         console.log("data insisde fetch funciton", res.data);
         setRestaurantsDATA(res.data.businesses);
