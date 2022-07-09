@@ -19,14 +19,14 @@ const ShowPickedGFood = ({
           {likedFoods.map((Gfood, index) => (
             <div key={index} className="single-Gfood">
               <h1>You liked {Gfood.name}</h1>
-              <h1>{Gfood.id_}</h1>
+              <h1>{Gfood.id}</h1>
               <div className="single-Gfood-image">
                 <img
                   src={`/images/foods/${Gfood.image}`}
                   alt={`You Picked ${Gfood.name}`}
                 />
               </div>
-              <Link to={`/Restaurants/${Gfood.id_}`}>
+              <Link to={`/Restaurants/${Gfood.id}`}>
                 <button>
                   Yummy! Lets see where i can get some {Gfood.name}
                 </button>
@@ -37,7 +37,7 @@ const ShowPickedGFood = ({
         {dislikedFoods.map((disLikedGfood, index) => (
           <div key={index} className="single-Gfood">
             <h1>You Did NOT Like {disLikedGfood.name}</h1>
-            <h1>{disLikedGfood.id_}</h1>
+            <h1>{disLikedGfood.id}</h1>
             <div className="single-Gfood-image">
               <img
                 src={`/images/foods/${disLikedGfood.image}`}

@@ -13,6 +13,8 @@ const Home = () => {
   const [searchLocation, setSearchLocation] = useState();
   const [searchRadius, setSearchRadius] = useState(8049);
 
+  console.log("data", data)
+
   const priceChange = (event) => {
     event.preventDefault();
     let newPrice = parseInt(event.target.value)
@@ -42,7 +44,7 @@ const Home = () => {
 
   const removedPickFood = (generalFoodsSource, displayedGFoodID) =>
     generalFoodsSource.filter(
-      (removeFood) => removeFood.id_ !== displayedGFoodID
+      (removeFood) => removeFood.id !== displayedGFoodID
     );
 
   const adjustGeneralFoodList = (displayedGFoodID, casePicked) => {
@@ -97,7 +99,7 @@ const Home = () => {
               path="/"
               element={
                 <PickFood
-                  key={generalFoods[0].id_}
+                  key={generalFoods[0].id}
                   displayedGFood={generalFoods[0]}
                   adjustGeneralFoodList={adjustGeneralFoodList}
                   priceChange={priceChange}

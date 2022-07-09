@@ -24,15 +24,15 @@ setCurrentRestaurantIndex(newcurrentRestaurantIndex)
 
   return (
     <div>
+    <Link to={`/`}>
     <button>Back to Food Options</button>
+    </Link>
     <div className="PickRestaurants-mainCard">
       <h1>From PickRestaurants</h1>
       <p>Running Search for Restaurants that got '{FoodSearchForOBJ.name}'</p>
       <h1>{restaurantsDATA[currentRestaurantIndex].name}</h1>
       <img src={restaurantsDATA[currentRestaurantIndex].image_url} alt={restaurantsDATA[currentRestaurantIndex].name} className="PickRestaurants-img"></img>
-      <Link to={`/`}>
-        
-      </Link>
+     
       </div>
       <p>Showing Restaurants in price of {searchPrice}</p>
       <p>Showing Restaurants around {searchLocation}</p>

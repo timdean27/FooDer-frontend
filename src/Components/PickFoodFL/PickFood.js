@@ -33,7 +33,7 @@ const PickFood = ({
       <button
         type="button"
         onClick={() =>
-          adjustGeneralFoodList(displayedGFood.id_, "case2DontSelectFood")
+          adjustGeneralFoodList(displayedGFood.id, "case2DontSelectFood")
         }
       >
         {displayedGFood.name} Not for me!
@@ -41,7 +41,7 @@ const PickFood = ({
       <button
         type="button"
         onClick={() =>
-          adjustGeneralFoodList(displayedGFood.id_, "case1SelectFood")
+          adjustGeneralFoodList(displayedGFood.id, "case1SelectFood")
         }
       >
         Looks Good, I'll consider some {displayedGFood.name}

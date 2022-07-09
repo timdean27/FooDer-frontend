@@ -11,8 +11,6 @@ const CheckRestaurants = ({
   searchLocation,
   searchRadius,
 }) => {
-
-
   const [searchCriteria, setSearchCriteria] = useState({
     term: "",
     location: searchLocation,
@@ -21,13 +19,13 @@ const CheckRestaurants = ({
   });
 
   const [FoodSearchForOBJ, setFoodSearchForOBJ] = useState([]);
+  const [apiError , setapiError] = useState("")
   const { id } = useParams();
-
 
   const FoodSearchfunction = () => {
     likedFoods.map((foodWeWant) => {
-      console.log("foodWeWant.id_", foodWeWant.id_);
-      if (foodWeWant.id_ == id) {
+      console.log("foodWeWant.id", foodWeWant.id);
+      if (foodWeWant.id == id) {
         setFoodSearchForOBJ(foodWeWant);
       }
     });
@@ -77,17 +75,24 @@ const CheckRestaurants = ({
   async function getResturantsData(path, searchCriteria) {
     const searchQuery = queryString.stringify(searchCriteria);
     await fetch(`${API_BASE_URL}${path}?${searchQuery}`, {
+      
       headers: {
         Authorization: `Bearer ${YELP_API_KEY}`,
         Origin: "localhost",
         withCredentials: true,
+
       },
+
     })
       .then((res) => res.json())
       .then((data) => {
         console.log("data insisde fetch funciton", data);
-
         setRestaurantsDATA(data.businesses);
+      })
+      .catch((error) => {
+
+      console.log("error",error )
+        
       });
   }
 
@@ -111,6 +116,12 @@ const CheckRestaurants = ({
     return (
       <div>
         <h1>Loading #2 Failed API Call</h1>
+          <button
+            href="https://cors-anywhere.herokuapp.com/corsdemo"
+            target="_blank"
+          >
+            Try Link and Unlocking cors anywhere
+          </button>
       </div>
     );
   }
@@ -133,7 +144,11 @@ const CheckRestaurants = ({
   return (
     <div>
       {Object.keys(FoodSearchForOBJ).length !== 0 ? loadedTerm() : loading()}
-      {Object.keys(FoodSearchForOBJ).length !== 0 && searchCriteria.term !== "" && restaurantsDATA.length === 0 ? makeAPICall() : callMadeShowCards()}
+      {Object.keys(FoodSearchForOBJ).length !== 0 &&
+      searchCriteria.term !== "" &&
+      restaurantsDATA.length === 0
+        ? makeAPICall()
+        : callMadeShowCards()}
     </div>
   );
 };
