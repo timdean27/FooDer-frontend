@@ -88,12 +88,6 @@ const CheckRestaurants = ({
     return (
       <div>
         <h1>Loading #2 Failed API Call</h1>
-        <button
-          href="https://cors-anywhere.herokuapp.com/corsdemo"
-          target="_blank"
-        >
-          Try Link and Unlocking cors anywhere
-        </button>
       </div>
     );
   }
