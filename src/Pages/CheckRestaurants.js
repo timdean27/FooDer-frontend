@@ -24,7 +24,7 @@ const CheckRestaurants = ({
 
   const FoodSearchfunction = () => {
     likedFoods.map((foodWeWant) => {
-      console.log("foodWeWant.id", foodWeWant.id);
+      // console.log("foodWeWant.id", foodWeWant.id);
       if (foodWeWant.id == id) {
         setFoodSearchForOBJ(foodWeWant);
       }
@@ -47,7 +47,7 @@ const CheckRestaurants = ({
         price: searchPrice,
         radius: searchRadius,
       });
-      console.log("searchCriteria", searchCriteria);
+      // console.log("searchCriteria", searchCriteria);
     }
   };
 
@@ -68,7 +68,7 @@ const CheckRestaurants = ({
     await axios
       .request(ParamsTOBack)
       .then((res) => {
-        console.log("data insisde fetch funciton", res.data);
+        // console.log("data insisde fetch funciton "/businesses/search" , res.data);
         setRestaurantsDATA(res.data.businesses);
       })
       .catch((error) => {
@@ -81,7 +81,7 @@ const CheckRestaurants = ({
   
   
   const makeAPICall = () => {
-    console.log("searchCriteria from inside make API CALL", searchCriteria);
+    // console.log("searchCriteria from inside make API CALL for /business/search", searchCriteria);
     getResturantsData("/businesses/search", searchCriteria);
   };
   if (Object.keys(FoodSearchForOBJ).length !== 0 && searchCriteria.term !== "" && restaurantsDATA.length === 0) {
