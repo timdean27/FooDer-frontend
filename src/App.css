@@ -122,3 +122,16 @@ header {
 	display: block;
 	object-fit: cover;
 }
+/* ViewRestaurant */
+.View-Restaurant-images{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:space-between;
+	
+}
+
+.View-Restaurant-images img{
+	border: 2px solid darkblue;
+	border-radius:10px;
+}

@@ -34,26 +34,17 @@ const PickRestaurants = ({
       </Link>
 
       <div className="PickRestaurants-mainCard">
-        <h1>From PickRestaurants</h1>
         <p>Running Search for Restaurants with '{FoodSearchForOBJ.name}'</p>
         <h2>
           currentRestaurantIndex = {currentRestaurantIndex}{" "}
           (restaurantsDATA.length -1) = {restaurantsDATA.length - 1}
         </h2>
         <h2>RestaurantID={restaurantsDATA[currentRestaurantIndex].id}</h2>
-        <h1>{restaurantsDATA[currentRestaurantIndex].name}</h1>
-        <img
-          src={restaurantsDATA[currentRestaurantIndex].image_url}
-          alt={restaurantsDATA[currentRestaurantIndex].name}
-          className="PickRestaurants-img"
-        ></img>
-
-
         <ViewRestaurant
           restaurantID={restaurantsDATA[currentRestaurantIndex].id}
         />
 
-        
+
       </div>
       <p>Restaurant price {restaurantsDATA[currentRestaurantIndex].price}</p>
       <p>Restaurant Rating {restaurantsDATA[currentRestaurantIndex].rating}</p>
