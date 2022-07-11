@@ -62,7 +62,7 @@ const CheckRestaurants = ({
     const path = "/businesses/search"
     const ParamsTOBack = {
       method: "GET",
-      url: "http://localhost:3500/api",
+      url: "http://localhost:3500/apiBS",
       params: { searchQuery , path },
     };
     await axios

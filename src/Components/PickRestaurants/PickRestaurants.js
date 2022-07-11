@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
+import singleViewRestuarant from "./singleViewRestaurant/singleViewRestaurant"
+
 
 const PickRestaurants = ({
   FoodSearchForOBJ,
@@ -36,6 +38,7 @@ const PickRestaurants = ({
       <div className="PickRestaurants-mainCard">
         <h1>From PickRestaurants</h1>
         <h2>currentRestaurantIndex = {currentRestaurantIndex} (restaurantsDATA.length -1) = {restaurantsDATA.length -1}</h2>
+        <h2>RestaurantID={restaurantsDATA[currentRestaurantIndex].id}</h2>
         <p>Running Search for Restaurants that got '{FoodSearchForOBJ.name}'</p>
         <h1>{restaurantsDATA[currentRestaurantIndex].name}</h1>
         <img
@@ -65,6 +68,7 @@ const PickRestaurants = ({
       </p>
       <button onClick={previousRestaurant}>Previous Restaurant</button>
       <button onClick={nextRestaurant}>Next Restaurant</button>
+      <singleViewRestuarant restaurantID={restaurantsDATA[currentRestaurantIndex].id}/>
     </div>
   );
 };
