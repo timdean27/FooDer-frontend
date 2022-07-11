@@ -12,6 +12,7 @@ const ShowPickedGFood = ({
   searchLocation,
   searchRadius,
 }) => {
+
   return (
     <div className="Selected-GFoods-Container">
       <div className="main-card-container">
@@ -26,14 +27,17 @@ const ShowPickedGFood = ({
                   alt={`You Picked ${Gfood.name}`}
                 />
               </div>
+              {searchLocation &&
               <Link to={`/Restaurants/${Gfood.id}`}>
                 <button>
                   Yummy! Lets see where i can get some {Gfood.name}
                 </button>
               </Link>
+              }
+                    
             </div>
           ))}
-        
+        {!searchLocation && <div>Please select a location</div>}
         {dislikedFoods.map((disLikedGfood, index) => (
           <div key={index} className="single-Gfood">
             <h1>You Did NOT Like {disLikedGfood.name}</h1>

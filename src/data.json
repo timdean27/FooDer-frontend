@@ -62,5 +62,13 @@
       "Liked_Foods": [],
       "disLiked_Foods": []
       
+    },
+    {
+      "id": 8,
+      "name": "Ice Cream",
+      "image": "iceCream.jpg",
+      "Liked_Foods": [],
+      "disLiked_Foods": []
+      
     }
   ]

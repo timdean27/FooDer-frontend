@@ -41,6 +41,8 @@ const Home = () => {
   const [likedFoods, setLikedFoods] = useState([]);
   const [dislikedFoods, setDislikedFoods] = useState([]);
   let current_food_option = 0;
+  console.log("generalFoods", generalFoods)
+
 
   const removedPickFood = (generalFoodsSource, displayedGFoodID) =>
     generalFoodsSource.filter(
@@ -94,7 +96,7 @@ const Home = () => {
       <Header />
       <div >
         <Routes>
-          {likedFoods.length < 3 ? (
+          {(likedFoods.length < 3 && generalFoods[0])? (
             <Route
               path="/"
               element={
