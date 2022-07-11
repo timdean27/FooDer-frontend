@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
-import singleViewRestuarant from "./singleViewRestaurant/singleViewRestaurant"
+import SingleViewRestaurant from "./SingleViewRestaurant/SingleViewRestaurant"
 
 
 const PickRestaurants = ({
@@ -11,7 +11,6 @@ const PickRestaurants = ({
   restaurantsDATA,
 }) => {
   const [currentRestaurantIndex, setCurrentRestaurantIndex] = useState(0);
-  const [singleViewRestuarant, setSingleViewRestuarant] = useState();
 
   console.log("restaurantsDATA inside PickRestaurants Page", restaurantsDATA);
   console.log("FoodSearchForOBJ inside PickRestaurants Page", FoodSearchForOBJ);
@@ -68,7 +67,7 @@ const PickRestaurants = ({
       </p>
       <button onClick={previousRestaurant}>Previous Restaurant</button>
       <button onClick={nextRestaurant}>Next Restaurant</button>
-      <singleViewRestuarant restaurantID={restaurantsDATA[currentRestaurantIndex].id}/>
+      <SingleViewRestaurant restaurantID={restaurantsDATA[currentRestaurantIndex].id}/>
     </div>
   );
 };
