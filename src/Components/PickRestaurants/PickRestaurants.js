@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
-import ViewRestaurant from "./ViewRestaurant/ViewRestaurant";
-
+import RestaurantsDetail from "./ViewRestaurant/RestaurantsDetail";
+import RestaurantsReviews from "./ViewRestaurant/RestaurantsReviews"
 const PickRestaurants = ({
   FoodSearchForOBJ,
   searchPrice,
@@ -40,11 +40,11 @@ const PickRestaurants = ({
           (restaurantsDATA.length -1) = {restaurantsDATA.length - 1}
         </h2>
         <h2>RestaurantID={restaurantsDATA[currentRestaurantIndex].id}</h2>
-        <ViewRestaurant
+
+        <RestaurantsDetail
           restaurantID={restaurantsDATA[currentRestaurantIndex].id}
         />
-
-
+        <RestaurantsReviews restaurantID={restaurantsDATA[currentRestaurantIndex].id} />
       </div>
       <p>Restaurant price {restaurantsDATA[currentRestaurantIndex].price}</p>
       <p>Restaurant Rating {restaurantsDATA[currentRestaurantIndex].rating}</p>
@@ -52,10 +52,13 @@ const PickRestaurants = ({
         Restaurant Review Count{" "}
         {restaurantsDATA[currentRestaurantIndex].review_count}
       </p>
-      <p>
-        Restaurant Address{" "}
-        {restaurantsDATA[currentRestaurantIndex].location.display_address}
-      </p>
+      <div>
+        {restaurantsDATA[currentRestaurantIndex].location.display_address.map(
+          (address, index) => (
+              <p key={index}>{address}</p>
+          )
+        )}
+      </div>
       <p>Restaurants Phone # {restaurantsDATA[currentRestaurantIndex].phone}</p>
       <p>
         Restaurant around{" "}
