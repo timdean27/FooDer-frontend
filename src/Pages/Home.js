@@ -5,7 +5,7 @@ import data from "../data.json";
 
 import Header from "../Components/Header";
 import PickFood from "../Components/PickFoodFL/PickFood";
-import ShowPickedGFood from "../Components/ShowPickedGFoods";
+import ShowPickedGFood from "../Components/ShowPickedGFood";
 import CheckRestaurants from "./CheckRestaurants";
 
 const Home = () => {

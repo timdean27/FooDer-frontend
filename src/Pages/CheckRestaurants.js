@@ -59,11 +59,11 @@ const CheckRestaurants = ({
 
   async function getResturantsData() {
     const searchQuery = queryString.stringify(searchCriteria);
-    const path = "/businesses/search"
+    const path = "/businesses/search";
     const ParamsTOBack = {
       method: "GET",
       url: "http://localhost:3500/apiBS",
-      params: { searchQuery , path },
+      params: { searchQuery, path },
     };
     await axios
       .request(ParamsTOBack)
@@ -78,13 +78,16 @@ const CheckRestaurants = ({
 
   // console.log("restaurantsDATA .length", restaurantsDATA.length);
   //console.log("restaurantsDATA", restaurantsDATA);
-  
-  
+
   const makeAPICall = () => {
     // console.log("searchCriteria from inside make API CALL for /business/search", searchCriteria);
     getResturantsData("/businesses/search", searchCriteria);
   };
-  if (Object.keys(FoodSearchForOBJ).length !== 0 && searchCriteria.term !== "" && restaurantsDATA.length === 0) {
+  if (
+    Object.keys(FoodSearchForOBJ).length !== 0 &&
+    searchCriteria.term !== "" &&
+    restaurantsDATA.length === 0
+  ) {
     makeAPICall();
     return (
       <div>

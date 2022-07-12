@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
-import queryString from "query-string";
 import axios from "axios";
+
+import RatingStars from "../../SubComps/RatingStars/RatingStars"
 
 const RestaurantsReviews = (restaurantID) => {
   console.log(restaurantID);
@@ -41,8 +42,9 @@ const RestaurantsReviews = (restaurantID) => {
     return (
       <div>
         {RestaurantsReviews.reviews.map((review, index) => (
-          <div key={index}>
-            <p>Reviewer Rating {review.rating}</p>
+          <div  key={index}>
+          <p>review.rating{review.rating}</p>
+          <RatingStars yelpRating={review.rating}/>
             <p>{review.text}</p>
           </div>
         ))}

@@ -51,13 +51,15 @@ const RestaurantsDetail = (restaurantID) => {
           ))}
         </div>
         <div className="Restaurant-schedule">
-          {RestaurantsDetail.hours[0].open.map((open, index) => (
+          {RestaurantsDetail.hours[0] ?
+            RestaurantsDetail.hours[0].open.map((open, index) => (
             <div key={index}>
               <p>{open.day}</p>
               <p>{open.start}</p>
               <p>{open.end}</p>
             </div>
-          ))}
+            
+          )):<p>Hours not listed</p>}
         </div>
       </div>
     );
