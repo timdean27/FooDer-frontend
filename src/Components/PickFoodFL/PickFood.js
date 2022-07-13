@@ -25,7 +25,7 @@ const PickFood = ({
           <div className="displayedGFood-description">
             <p className="displayedGFood-name-display">{displayedGFood.name}</p>
           </div>
-        </div>
+        
         <div className="food-button-box" >
           <button
             type="button"
@@ -43,6 +43,7 @@ const PickFood = ({
           >
             Looks Good, I'll consider some {displayedGFood.name}
           </button>
+        </div>
         </div>
       <Price_Loc_sellec
         priceChange={priceChange}

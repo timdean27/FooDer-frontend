@@ -12,10 +12,10 @@ const ShowPickedGFood = ({
   searchLocation,
   searchRadius,
 }) => {
-
   return (
+    <div>
     <div className="Selected-GFoods-Container">
-      <div className="main-card-container">
+     
         <div className="GFoods-Box">
           {likedFoods.map((Gfood, index) => (
             <div key={index} className="single-Gfood">
@@ -27,31 +27,30 @@ const ShowPickedGFood = ({
                   alt={`You Picked ${Gfood.name}`}
                 />
               </div>
-              {searchLocation &&
-              <Link to={`/Restaurants/${Gfood.id}`}>
-                <button>
-                  Yummy! Lets see where i can get some {Gfood.name}
-                </button>
-              </Link>
-              }
-                    
+              {searchLocation && (
+                <Link to={`/Restaurants/${Gfood.id}`}>
+                  <button>
+                    Yummy! Lets see where i can get some {Gfood.name}
+                  </button>
+                </Link>
+              )}
             </div>
           ))}
-        {!searchLocation && <div>Please select a location</div>}
-        {dislikedFoods.map((disLikedGfood, index) => (
-          <div key={index} className="single-Gfood">
-            <h1>You Did NOT Like {disLikedGfood.name}</h1>
-            <h1>{disLikedGfood.id}</h1>
-            <div className="single-Gfood-image">
-              <img
-                src={`/images/foods/${disLikedGfood.image}`}
-                alt={`You Picked ${disLikedGfood.name}`}
-              />
+          {!searchLocation && <div>Please select a location</div>}
+          {dislikedFoods.map((disLikedGfood, index) => (
+            <div key={index} className="single-Gfood">
+              <h1>You Did NOT Like {disLikedGfood.name}</h1>
+              <h1>{disLikedGfood.id}</h1>
+              <div className="single-Gfood-image">
+                <img
+                  src={`/images/foods/${disLikedGfood.image}`}
+                  alt={`You Picked ${disLikedGfood.name}`}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
-      </div>
+        </div>
       <Price_Loc_sellec
         priceChange={priceChange}
         locationChange={locationChange}
