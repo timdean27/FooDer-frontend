@@ -12,41 +12,38 @@ const PickFood = ({
   searchLocation,
   searchRadius,
 }) => {
-
-
   return (
     <div>
-    <div className="main-card-container">
-      <div className="displayedGFood">
-        <div className="displayedGFood-photo">
-          <img
-            src={`/images/foods/${displayedGFood.image}`}
-            alt={displayedGFood.name}
-          />
-        </div>
+        <div  className="displayedGFood">
+          <div className="displayedGFood-photo">
+            <img
+              src={`/images/foods/${displayedGFood.image}`}
+              alt={displayedGFood.name}
+            />
+          </div>
 
-        <div className="displayedGFood-description">
-          <p className="displayedGFood-name-display">{displayedGFood.name}</p>
+          <div className="displayedGFood-description">
+            <p className="displayedGFood-name-display">{displayedGFood.name}</p>
+          </div>
         </div>
-      </div>
-
-      <button
-        type="button"
-        onClick={() =>
-          adjustGeneralFoodList(displayedGFood.id, "case2DontSelectFood")
-        }
-      >
-        {displayedGFood.name} Not for me!
-      </button>
-      <button
-        type="button"
-        onClick={() =>
-          adjustGeneralFoodList(displayedGFood.id, "case1SelectFood")
-        }
-      >
-        Looks Good, I'll consider some {displayedGFood.name}
-      </button>
-      </div>
+        <div className="food-button-box" >
+          <button
+            type="button"
+            onClick={() =>
+              adjustGeneralFoodList(displayedGFood.id, "case2DontSelectFood")
+            }
+          >
+            {displayedGFood.name} Not for me!
+          </button>
+          <button
+            type="button"
+            onClick={() =>
+              adjustGeneralFoodList(displayedGFood.id, "case1SelectFood")
+            }
+          >
+            Looks Good, I'll consider some {displayedGFood.name}
+          </button>
+        </div>
       <Price_Loc_sellec
         priceChange={priceChange}
         locationChange={locationChange}

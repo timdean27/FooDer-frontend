@@ -10,9 +10,9 @@ const RestaurantsReviews = (restaurantID) => {
 
   ////////////////////////////////API call For "/businesses/{id}/reviews"
   async function getResturantsReviews() {
-    console.log("getResturantsReviews ran", restaurantID);
+    // console.log("getResturantsReviews ran", restaurantID);
     let pathReviews = `/businesses/${restaurantID.restaurantID}/reviews`;
-    console.log("getResturantsReviews ran pathReviews", pathReviews);
+    // console.log("getResturantsReviews ran pathReviews", pathReviews);
     const ReviewParamsTOBack = {
       method: "GET",
       url: "http://localhost:3500/api/Reviews",
@@ -40,7 +40,7 @@ const RestaurantsReviews = (restaurantID) => {
 
   const loadedReviewsData = () => {
     return (
-      <div>
+      <div className="review-rating-container">
         {RestaurantsReviews.reviews.map((review, index) => (
           <div  key={index}>
           <p>review.rating{review.rating}</p>

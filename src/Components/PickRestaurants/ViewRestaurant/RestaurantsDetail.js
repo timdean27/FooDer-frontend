@@ -3,14 +3,18 @@ import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
 
+import RestaurantHours  from "./RestaurantHours/RestaurantHours"
+
+
+
 const RestaurantsDetail = (restaurantID) => {
   console.log(restaurantID);
   const [RestaurantsDetail, setRestaurantsDetail] = useState();
   ////////////////////////////////API call For "/businesses/{id}"
   async function getResturantsDetail() {
-    console.log("getResturantsDetail ran", restaurantID);
+    // console.log("getResturantsDetail ran", restaurantID);
     let pathDetail = `/businesses/${restaurantID.restaurantID}`;
-    console.log("getResturantsDetail ran pathDetail", pathDetail);
+    // console.log("getResturantsDetail ran pathDetail", pathDetail);
     const DetailParamsTOBack = {
       method: "GET",
       url: "http://localhost:3500/api/Detail",
@@ -50,17 +54,7 @@ const RestaurantsDetail = (restaurantID) => {
             ></img>
           ))}
         </div>
-        <div className="Restaurant-schedule">
-          {RestaurantsDetail.hours[0] ?
-            RestaurantsDetail.hours[0].open.map((open, index) => (
-            <div key={index}>
-              <p>{open.day}</p>
-              <p>{open.start}</p>
-              <p>{open.end}</p>
-            </div>
-            
-          )):<p>Hours not listed</p>}
-        </div>
+        <RestaurantHours  RestaurantsDetail={RestaurantsDetail}/>
       </div>
     );
   };

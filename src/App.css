@@ -13,7 +13,6 @@ body {
 	margin: auto;
 }
 
-
 header {
 	background-color: red;
 	overflow: hidden;
@@ -24,16 +23,16 @@ header {
 	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
 }
 
+/* PickFood */
+
 .displayedGFood{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 }
 
 .displayedGFood-photo{
 	overflow: hidden;
-
 }
 
 .displayedGFood-description {
@@ -57,6 +56,13 @@ header {
 	display: block;
 	object-fit: cover;
 }
+
+.food-button-box{
+	display: flex;
+	justify-content: space-evenly;
+	background-color:black;
+}
+
 
 /* ShowPickedGFoods */
 .Selected-GFoods-Container {
@@ -128,6 +134,33 @@ header {
 
 }
 
+.reviewsNdets-container{
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 20px;
+	justify-content: space-between;
+	width: 60%;
+	margin-left: 15vw;
+
+}
+.restaurantsDATA-container{
+	margin-top: 3vh;
+	width: 35%;
+	height: 25%;
+	font-size: 20px;
+	overflow-wrap: break-word; 
+
+}
+.rest-button-box{
+	width: 55%;
+	display: flex;
+	justify-content: space-between;
+}
+.rest-button-box button
+{
+	font-size: 20px;
+	margin-bottom: 2vh;
+}
 
 .PickRestaurants-img{
 	width: 300px;
@@ -140,13 +173,12 @@ header {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content:space-between;
-	
 }
 
 .RestaurantDetail-images img{
 	border: 2px solid darkblue;
-	border-radius:10px;
+	border-radius:5px;
+	margin: 3px;
 }
 
 
@@ -158,4 +190,9 @@ header {
 }
 
 /* ViewRestaurant RestaurantsReviews */
-
+.review-rating-container {
+ width: 65%;
+}
+.review-rating-container p {
+overflow-wrap: break-word; 
+}
