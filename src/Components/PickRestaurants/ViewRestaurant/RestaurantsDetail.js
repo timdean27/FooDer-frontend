@@ -3,8 +3,8 @@ import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
 
-import RestaurantHours  from "./RestaurantHours/RestaurantHours"
-
+import RestaurantHours  from "./ViewResSubComps/RestaurantHours"
+import RestaurantAddress from "./ViewResSubComps/RestaurantAddress";
 
 
 const RestaurantsDetail = (restaurantID) => {
@@ -55,6 +55,7 @@ const RestaurantsDetail = (restaurantID) => {
           ))}
         </div>
         <RestaurantHours  RestaurantsDetail={RestaurantsDetail}/>
+        <RestaurantAddress RestaurantsDetail={RestaurantsDetail}/>
       </div>
     );
   };
@@ -64,7 +65,10 @@ const RestaurantsDetail = (restaurantID) => {
   };
 
   return (
+    <div>      
+    
     <div>{RestaurantsDetail ? loadedDetailData() : loadingDetailData()}</div>
+    </div>
   );
 };
 

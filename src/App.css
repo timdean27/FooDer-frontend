@@ -23,6 +23,42 @@ header {
 	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
 }
 
+.selector-button
+{
+	font-size: 15px;
+	font-weight: bold;
+	color: black;
+	margin-top: 1px;
+	padding: 14px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	border: 2px solid darkblue;
+	border-radius:4px;
+	width: 18vw;
+	max-width: 18vw;
+}
+
+.selector-button :hover{
+	color: green;
+	border: 2px solid green
+}
+
+
+.Arrow-icon{
+	font-size: 3.5vw;
+	font-weight: bold;
+	color: darkblue;
+}
+
+
+.Arrow-icon :hover{
+	color: green;
+	border: 2px solid green
+}
+
+
+
 /* PickFood */
 
 .displayedGFood{
@@ -104,20 +140,7 @@ header {
 	object-fit: cover;
 	object-position: 50% 50%;
 }
-.GFoods-Box .single-Gfood button{
-	color: black;
-	margin-top: 1px;
-	padding: 14px 25px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	border: 2px solid darkblue;
-	border-radius:4px;
-}
-.GFoods-Box .single-Gfood button:hover{
-	color: green;
-	border: 2px solid green
-}
+
 /* Price_Loc_sellec */
 .price-range-Loc-container{
 	display: flex;
@@ -184,11 +207,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 }
-.rest-button-box button
-{
-	font-size: 20px;
-	margin-bottom: 2vh;
-}
+
 
 .PickRestaurants-img{
 	width: 300px;

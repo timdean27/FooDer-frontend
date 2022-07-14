@@ -43,7 +43,6 @@ const RestaurantsReviews = (restaurantID) => {
       <div className="review-rating-container">
         {RestaurantsReviews.reviews.map((review, index) => (
           <div  key={index}>
-          <p>review.rating{review.rating}</p>
           <RatingStars yelpRating={review.rating}/>
             <p>{review.text}</p>
           </div>

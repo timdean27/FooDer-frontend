@@ -28,8 +28,8 @@ const loadedSchedule =()=>{
   })
 }
 
-const findingHours =()=> {return(<div>RestaurantsDetail not loaded</div>)}
-const loadingSchedule =()=> {return(<div>Hours Not Available</div>)}
+const findingHours =()=> {return(<div>RestaurantsDetail hours Not Available</div>)}
+const loadingSchedule =()=> {return(<div>Schedule Not Available</div>)}
 
   return (
     <div className="Restaurant-schedule">

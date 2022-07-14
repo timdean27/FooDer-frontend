@@ -16,6 +16,7 @@ const CheckRestaurants = ({
     location: searchLocation,
     price: searchPrice,
     radius: searchRadius,
+    limit:50,
   });
 
   const [FoodSearchForOBJ, setFoodSearchForOBJ] = useState([]);
@@ -46,6 +47,7 @@ const CheckRestaurants = ({
         location: searchLocation,
         price: searchPrice,
         radius: searchRadius,
+        limit:50,
       });
       // console.log("searchCriteria", searchCriteria);
     }

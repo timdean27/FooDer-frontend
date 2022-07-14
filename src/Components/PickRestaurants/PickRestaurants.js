@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import RestaurantsDetail from "./ViewRestaurant/RestaurantsDetail";
 import RestaurantsReviews from "./ViewRestaurant/RestaurantsReviews";
+
+import { TiArrowRightOutline } from "react-icons/ti";
+import { TiArrowLeftOutline } from "react-icons/ti";
+
+
 const PickRestaurants = ({
   FoodSearchForOBJ,
   searchPrice,
@@ -32,21 +37,19 @@ const PickRestaurants = ({
       <Link to={`/`}>
         <button>Back to Food Options</button>
       </Link>
-
+      <h3>Running Search for Restaurants with '{FoodSearchForOBJ.name}'</h3>
+      <h3>
+        Showing {currentRestaurantIndex +1} of {restaurantsDATA.length}
+      </h3>
       <div className="PickRestaurants-mainCard">
-        <p>Running Search for Restaurants with '{FoodSearchForOBJ.name}'</p>
-        <h2>
-          currentRestaurantIndex = {currentRestaurantIndex}{" "}
-          (restaurantsDATA.length -1) = {restaurantsDATA.length - 1}
-        </h2>
         <h2>RestaurantID={restaurantsDATA[currentRestaurantIndex].id}</h2>
-
         <RestaurantsDetail
           restaurantID={restaurantsDATA[currentRestaurantIndex].id}
         />
         <div className="rest-button-box">
-          <button onClick={previousRestaurant}>Previous Restaurant</button>
-          <button onClick={nextRestaurant}>Next Restaurant</button>
+          
+          <TiArrowLeftOutline className="Arrow-icon" onClick={previousRestaurant}/>
+          <TiArrowRightOutline className="Arrow-icon" onClick={nextRestaurant} />
         </div>
       </div>
 
@@ -67,14 +70,6 @@ const PickRestaurants = ({
           <p>
             Restaurant price {restaurantsDATA[currentRestaurantIndex].price}
           </p>
-          
-          <div>
-            {restaurantsDATA[
-              currentRestaurantIndex
-            ].location.display_address.map((address, index) => (
-              <p key={index}>{address}</p>
-            ))}
-          </div>
           <p>
             Restaurants Phone # {restaurantsDATA[currentRestaurantIndex].phone}
           </p>

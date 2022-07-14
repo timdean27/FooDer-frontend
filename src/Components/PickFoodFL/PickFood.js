@@ -28,6 +28,7 @@ const PickFood = ({
         
         <div className="food-button-box" >
           <button
+          className="selector-button"
             type="button"
             onClick={() =>
               adjustGeneralFoodList(displayedGFood.id, "case2DontSelectFood")
@@ -36,6 +37,7 @@ const PickFood = ({
             {displayedGFood.name} Not for me!
           </button>
           <button
+          className="selector-button"
             type="button"
             onClick={() =>
               adjustGeneralFoodList(displayedGFood.id, "case1SelectFood")
