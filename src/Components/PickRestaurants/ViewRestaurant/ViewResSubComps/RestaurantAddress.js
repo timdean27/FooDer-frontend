@@ -1,10 +1,10 @@
 import React from 'react'
 
-const RestaurantAddress = ({RestaurantsDetail}) => {
+const RestaurantAddress = ({restaurantsDetail}) => {
 
     
     const findAddress =()=>{
-      return RestaurantsDetail.location.display_address.map((address, index) =>{
+      return restaurantsDetail.location.display_address.map((address, index) =>{
         return (
           <div key={index}>
           <p>{address}</p>
@@ -19,7 +19,7 @@ const RestaurantAddress = ({RestaurantsDetail}) => {
 
 
   return (
-    <div>{RestaurantsDetail.location.display_address ? findAddress() : findingAddress()}</div>
+    <div className="Address-container">{restaurantsDetail.location.display_address ? findAddress() : findingAddress()}</div>
   )
 }
 

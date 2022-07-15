@@ -7,9 +7,9 @@ import RestaurantHours  from "./ViewResSubComps/RestaurantHours"
 import RestaurantAddress from "./ViewResSubComps/RestaurantAddress";
 
 
-const RestaurantsDetail = (restaurantID) => {
+const RestaurantsDetailComp = (restaurantID) => {
   console.log(restaurantID);
-  const [RestaurantsDetail, setRestaurantsDetail] = useState();
+  const [restaurantsDetail, setRestaurantsDetail] = useState();
   ////////////////////////////////API call For "/businesses/{id}"
   async function getResturantsDetail() {
     // console.log("getResturantsDetail ran", restaurantID);
@@ -28,7 +28,7 @@ const RestaurantsDetail = (restaurantID) => {
           res.data
         );
         setRestaurantsDetail(res.data);
-        console.log("RestaurantsDetail", RestaurantsDetail);
+        console.log("restaurantsDetail", restaurantsDetail);
       })
       .catch((error) => {
         console.log(error);
@@ -43,19 +43,19 @@ const RestaurantsDetail = (restaurantID) => {
   const loadedDetailData = () => {
     return (
       <div>
-        <h1>{RestaurantsDetail.name}</h1>
+        <h1>{restaurantsDetail.name}</h1>
         <div className="RestaurantDetail-images">
-          {RestaurantsDetail.photos.map((photo, index) => (
+          {restaurantsDetail.photos.map((photo, index) => (
             <img
               key={index}
               src={photo}
-              alt="RestaurantsDetail.photos"
+              alt="restaurantsDetail.photos"
               className="PickRestaurants-img"
             ></img>
           ))}
         </div>
-        <RestaurantHours  RestaurantsDetail={RestaurantsDetail}/>
-        <RestaurantAddress RestaurantsDetail={RestaurantsDetail}/>
+        <RestaurantHours  restaurantsDetail={restaurantsDetail}/>
+        <RestaurantAddress restaurantsDetail={restaurantsDetail}/>
       </div>
     );
   };
@@ -67,9 +67,9 @@ const RestaurantsDetail = (restaurantID) => {
   return (
     <div>      
     
-    <div>{RestaurantsDetail ? loadedDetailData() : loadingDetailData()}</div>
+    <div>{restaurantsDetail ? loadedDetailData() : loadingDetailData()}</div>
     </div>
   );
 };
 
-export default RestaurantsDetail;
+export default RestaurantsDetailComp;

@@ -263,3 +263,9 @@ overflow-wrap: break-word;
 	font-size:12px;
 	color: #777;
 }
+
+/* RestaurantAddress */
+
+.Address-container{
+	font-size:20px;
+}

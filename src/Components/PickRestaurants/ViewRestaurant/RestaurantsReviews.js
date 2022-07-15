@@ -6,7 +6,7 @@ import RatingStars from "../../SubComps/RatingStars/RatingStars"
 
 const RestaurantsReviews = (restaurantID) => {
   console.log(restaurantID);
-  const [RestaurantsReviews, setRestaurantsReviews] = useState();
+  const [restaurantsReviews, setRestaurantsReviews] = useState();
 
   ////////////////////////////////API call For "/businesses/{id}/reviews"
   async function getResturantsReviews() {
@@ -26,7 +26,7 @@ const RestaurantsReviews = (restaurantID) => {
           res.data
         );
         setRestaurantsReviews(res.data);
-        console.log("RestaurantsReviews", RestaurantsReviews);
+        console.log("restaurantsReviews", restaurantsReviews);
       })
       .catch((error) => {
         console.log(error);
@@ -41,7 +41,7 @@ const RestaurantsReviews = (restaurantID) => {
   const loadedReviewsData = () => {
     return (
       <div className="review-rating-container">
-        {RestaurantsReviews.reviews.map((review, index) => (
+        {restaurantsReviews.reviews.map((review, index) => (
           <div  key={index}>
           <RatingStars yelpRating={review.rating}/>
             <p>{review.text}</p>
@@ -55,7 +55,7 @@ const RestaurantsReviews = (restaurantID) => {
   };
 
   return (
-    <div>{RestaurantsReviews ? loadedReviewsData() : loadingReviewsData()}</div>
+    <div>{restaurantsReviews ? loadedReviewsData() : loadingReviewsData()}</div>
   );
 };
 

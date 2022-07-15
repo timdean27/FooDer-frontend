@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
-import RestaurantsDetail from "./ViewRestaurant/RestaurantsDetail";
+import RestaurantsDetailComp from "./ViewRestaurant/RestaurantsDetailComp";
 import RestaurantsReviews from "./ViewRestaurant/RestaurantsReviews";
 
 const PickRestaurants = ({
@@ -39,7 +39,7 @@ const PickRestaurants = ({
       </h3>
       <div className="PickRestaurants-mainCard">
         <h2>RestaurantID={restaurantsDATA[currentRestaurantIndex].id}</h2>
-        <RestaurantsDetail
+        <RestaurantsDetailComp
           restaurantID={restaurantsDATA[currentRestaurantIndex].id}
         />
         <div className="rest-button-box">
@@ -70,8 +70,6 @@ const PickRestaurants = ({
           </p>
           <p>
             Restaurant around{" "}
-            {Math.round(restaurantsDATA[currentRestaurantIndex].distance)}{" "}
-            meters or{" "}
             {Math.round(
               (restaurantsDATA[currentRestaurantIndex].distance / 5280) * 3.28
             )}{" "}
