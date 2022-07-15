@@ -23,13 +23,13 @@ const ShowPickedGFood = ({
               <h1>{Gfood.id}</h1>
               <div className="single-Gfood-image">
                 <img
-                  src={`/images/foods/${Gfood.image}`}
+                  src={`/images/foods/${Gfood.image_url}`}
                   alt={`You Picked ${Gfood.name}`}
                 />
               </div>
               {searchLocation && (
                 <Link to={`/Restaurants/${Gfood.id}`}>
-                  <button>
+                  <button className="show-pick-btn">
                     Yummy! Lets see where i can get some {Gfood.name}
                   </button>
                 </Link>
@@ -43,7 +43,7 @@ const ShowPickedGFood = ({
               <h1>{disLikedGfood.id}</h1>
               <div className="single-Gfood-image">
                 <img
-                  src={`/images/foods/${disLikedGfood.image}`}
+                  src={`/images/foods/${disLikedGfood.image_url}`}
                   alt={`You Picked ${disLikedGfood.name}`}
                 />
               </div>

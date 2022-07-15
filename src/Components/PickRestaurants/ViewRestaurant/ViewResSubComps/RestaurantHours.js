@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const RestaurantHours = ({RestaurantsDetail}) => {
 const [schedule ,setSchedule] = useState({})
-
+console.log("innside hours", RestaurantsDetail)
 const findHours = () =>{
  RestaurantsDetail.hours.map((findHours, i) =>
   {
@@ -15,11 +15,11 @@ const findHours = () =>{
 )}
 
 const loadedSchedule =()=>{
-  console.log("loadedSchedule" ,schedule)
-  schedule.map((open,index)=>{
+  console.log("loadedSchedule" ,schedule.length)
+  return schedule.map((open,index)=>{
     console.log("open.day" ,open.day)
     return (
-      <div key={index}>
+    <div key={index}>
       <p>{open.day}</p>
       <p>{open.start}</p>
       <p>{open.end}</p>

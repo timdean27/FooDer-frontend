@@ -2,11 +2,20 @@ import React from 'react'
 
 const RestaurantAddress = ({RestaurantsDetail}) => {
 
-    const findAddress = () =>{
-     RestaurantsDetail.location.display_address.map((address, index) => (
-        // console.log(address)
-       <p key={index}>{address}</p>
-    ))}
+    
+    const findAddress =()=>{
+      return RestaurantsDetail.location.display_address.map((address, index) =>{
+        return (
+          <div key={index}>
+          <p>{address}</p>
+          </div>
+    )
+      })
+    }
+
+
+
+
 
     const findingAddress = () => {
         <div>Finding address</div>

@@ -39,23 +39,34 @@ header {
 	max-width: 18vw;
 }
 
-.selector-button :hover{
+.selector-button:hover{
 	color: green;
 	border: 2px solid green
 }
+.show-pick-btn{
+	border-radius:4px;
+	font-weight: bold;
+	color: black;	
+	text-decoration: none;
+	border: 2px solid darkblue;
+}
+.show-pick-btn:hover{
+	color: green;
+	border: 2px solid green;
+	border-radius:4px;
+}
 
-
-.Arrow-icon{
-	font-size: 3.5vw;
+/* .Arrow-icon{
+	font-size: 55px;
 	font-weight: bold;
 	color: darkblue;
 }
 
 
-.Arrow-icon :hover{
+.Arrow-icon:hover{
 	color: green;
 	border: 2px solid green
-}
+} */
 
 
 

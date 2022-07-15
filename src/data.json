@@ -2,7 +2,7 @@
     {
       "id": 0,
       "name": "Pizza",
-      "image": "pizza_test.jpg",
+      "image_url": "pizza_test.jpg",
       "Liked_Foods": [],
       "disLiked_Foods": []
       
@@ -10,7 +10,7 @@
     {
       "id": 1,
       "name": "Sushi",
-      "image": "sushi_test.webp",
+      "image_url": "sushi_test.webp",
       "Liked_Foods": [],
       "disLiked_Foods": []
       
@@ -18,7 +18,7 @@
     {
       "id": 2,
       "name": "Burgers",
-      "image": "burger_test.webp",
+      "image_url": "burger_test.webp",
       "Liked_Foods": [],
       "disLiked_Foods": []
       
@@ -26,7 +26,7 @@
     {
       "id": 3,
       "name": "Ramen",
-      "image": "ramen_test.jpg",
+      "image_url": "ramen_test.jpg",
       "Liked_Foods": [],
       "disLiked_Foods": []
       
@@ -34,7 +34,7 @@
     {
       "id": 4,
       "name": "Steak",
-      "image": "steak_test.webp",
+      "image_url": "steak_test.webp",
       "Liked_Foods": [],
       "disLiked_Foods": []
       
@@ -42,7 +42,7 @@
     {
       "id": 5,
       "name": "Tacos",
-      "image": "taco_test.png",
+      "image_url": "taco_test.png",
       "Liked_Foods": [],
       "disLiked_Foods": []
       
@@ -50,7 +50,7 @@
     {
       "id": 6,
       "name": "Salad",
-      "image": "salad_test.jpg",
+      "image_url": "salad_test.jpg",
       "Liked_Foods": [],
       "disLiked_Foods": []
       
@@ -58,7 +58,7 @@
     {
       "id": 7,
       "name": "Chicken Sandwich",
-      "image": "chicken_sandwich_test.jpg",
+      "image_url": "chicken_sandwich_test.jpg",
       "Liked_Foods": [],
       "disLiked_Foods": []
       
@@ -66,7 +66,7 @@
     {
       "id": 8,
       "name": "Ice Cream",
-      "image": "iceCream.jpg",
+      "image_url": "iceCream.jpg",
       "Liked_Foods": [],
       "disLiked_Foods": []
       

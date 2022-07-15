@@ -3,10 +3,6 @@ import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import RestaurantsDetail from "./ViewRestaurant/RestaurantsDetail";
 import RestaurantsReviews from "./ViewRestaurant/RestaurantsReviews";
 
-import { TiArrowRightOutline } from "react-icons/ti";
-import { TiArrowLeftOutline } from "react-icons/ti";
-
-
 const PickRestaurants = ({
   FoodSearchForOBJ,
   searchPrice,
@@ -47,9 +43,8 @@ const PickRestaurants = ({
           restaurantID={restaurantsDATA[currentRestaurantIndex].id}
         />
         <div className="rest-button-box">
-          
-          <TiArrowLeftOutline className="Arrow-icon" onClick={previousRestaurant}/>
-          <TiArrowRightOutline className="Arrow-icon" onClick={nextRestaurant} />
+          <button className="selector-button" onClick={previousRestaurant}>Previous Restaurant</button>
+          <button className="selector-button" onClick={nextRestaurant}>Next Restaurant</button>
         </div>
       </div>
 

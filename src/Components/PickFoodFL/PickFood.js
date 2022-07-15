@@ -17,7 +17,7 @@ const PickFood = ({
         <div  className="displayedGFood">
           <div className="displayedGFood-photo">
             <img
-              src={`/images/foods/${displayedGFood.image}`}
+              src={`/images/foods/${displayedGFood.image_url}`}
               alt={displayedGFood.name}
             />
           </div>
