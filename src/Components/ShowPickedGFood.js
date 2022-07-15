@@ -4,7 +4,6 @@ import Price_Loc_sellec from "./PickFoodFL/SubPickFood/Price_Loc_sellec";
 
 const ShowPickedGFood = ({
   likedFoods,
-  dislikedFoods,
   radiusChange,
   locationChange,
   priceChange,
@@ -15,7 +14,6 @@ const ShowPickedGFood = ({
   return (
     <div>
     <div className="Selected-GFoods-Container">
-     
         <div className="GFoods-Box">
           {likedFoods.map((Gfood, index) => (
             <div key={index} className="single-Gfood">
@@ -37,18 +35,6 @@ const ShowPickedGFood = ({
             </div>
           ))}
           {!searchLocation && <div>Please select a location</div>}
-          {dislikedFoods.map((disLikedGfood, index) => (
-            <div key={index} className="single-Gfood">
-              <h1>You Did NOT Like {disLikedGfood.name}</h1>
-              <h1>{disLikedGfood.id}</h1>
-              <div className="single-Gfood-image">
-                <img
-                  src={`/images/foods/${disLikedGfood.image_url}`}
-                  alt={`You Picked ${disLikedGfood.name}`}
-                />
-              </div>
-            </div>
-          ))}
         </div>
         </div>
       <Price_Loc_sellec

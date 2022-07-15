@@ -77,9 +77,21 @@ header {
 	flex-direction: column;
 	align-items: center;
 }
-
 .displayedGFood-photo{
 	overflow: hidden;
+}
+.LikedFood-Container{
+	max-width: 30vw;
+}
+.LikedFood-innerBox{
+	display: flex;
+	max-width: 30vw;
+}
+
+.LikedFood-innerBox .single-LikedFood-image img{
+	flex-direction: row;
+	width: 20%;
+	margin: 10px;
 }
 
 .displayedGFood-description {

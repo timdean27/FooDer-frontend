@@ -38,57 +38,32 @@ const Home = () => {
 
 ///////////////logic for Selcting food cards
   const [generalFoods, setGeneralFoods] = useState(data);
-  const [likedFoods, setLikedFoods] = useState([]);
-  const [dislikedFoods, setDislikedFoods] = useState([]);
-  let current_food_option = 0;
+  const [currentGfoodIndex, setCurrentGfoodIndex] = useState(0);
+  const [likedFoods,setLikedFoods] = useState([])
   console.log("generalFoods", generalFoods)
 
 
-  const removedPickFood = (generalFoodsSource, displayedGFoodID) =>
-    generalFoodsSource.filter(
-      (removeFood) => removeFood.id !== displayedGFoodID
-    );
-
-  const adjustGeneralFoodList = (displayedGFoodID, casePicked) => {
-    const newgeneralFoods = [...generalFoods];
-    const newLikedFoods = [...likedFoods];
-    const newDislikedFoods = [...dislikedFoods];
-
-    switch (casePicked) {
-      case "case1SelectFood":
-        if (
-          !generalFoods[current_food_option].Liked_Foods.includes(
-            displayedGFoodID
-          )
-        ) {
-          newgeneralFoods[current_food_option].Liked_Foods.push(
-            displayedGFoodID
-          );
-          newLikedFoods.push(data[displayedGFoodID]);
-
-          setLikedFoods(newLikedFoods);
-          setGeneralFoods(removedPickFood(generalFoods, displayedGFoodID));
-        }
-        break;
-      case "case2DontSelectFood":
-        if (
-          !generalFoods[current_food_option].disLiked_Foods.includes(
-            displayedGFoodID
-          )
-        ) {
-          newgeneralFoods[current_food_option].disLiked_Foods.push(
-            displayedGFoodID
-          );
-          newDislikedFoods.push(data[displayedGFoodID]);
-
-          setDislikedFoods(newDislikedFoods);
-          setGeneralFoods(removedPickFood(generalFoods, displayedGFoodID));
-        }
-        break;
-      default:
-        return generalFoods;
+  const nextGfood = () => {
+    if (currentGfoodIndex < generalFoods.length) {
+      let newcurrentGfoodIndex = currentGfoodIndex + 1;
+      setCurrentGfoodIndex(newcurrentGfoodIndex);
     }
   };
+  const previousGfood = () => {
+    if (currentGfoodIndex != 0) {
+      let lastcurrentGfoodIndex = currentGfoodIndex - 1;
+      setCurrentGfoodIndex(lastcurrentGfoodIndex);
+    }
+  };
+  const likeGfoods = () => {
+    if(!likedFoods.includes(generalFoods[currentGfoodIndex])){
+    let addlikeGfood =[...likedFoods]
+    console.log("addlikeGfood", addlikeGfood)
+    addlikeGfood.push(generalFoods[currentGfoodIndex])
+    setLikedFoods(addlikeGfood)
+    console.log("likedFoods", likedFoods)
+    }
+  }
 
 
   return (
@@ -96,14 +71,17 @@ const Home = () => {
       <Header />
       <div >
         <Routes>
-          {(likedFoods.length < 3 && generalFoods[0])? (
+          {(likedFoods.length < 3)? (
             <Route
               path="/"
               element={
                 <PickFood
-                  key={generalFoods[0].id}
-                  displayedGFood={generalFoods[0]}
-                  adjustGeneralFoodList={adjustGeneralFoodList}
+                  generalFoods={generalFoods}
+                  currentGfoodIndex={currentGfoodIndex}
+                  nextGfood= {nextGfood}
+                  previousGfood={previousGfood}
+                  likeGfoods={likeGfoods}
+                  likedFoods={likedFoods}
                   priceChange={priceChange}
                   locationChange={locationChange}
                   radiusChange={radiusChange}
@@ -120,7 +98,6 @@ const Home = () => {
               element={
                 <ShowPickedGFood
                   likedFoods={likedFoods}
-                  dislikedFoods={dislikedFoods}
                   priceChange={priceChange}
                   locationChange={locationChange}
                   radiusChange={radiusChange}
@@ -137,7 +114,6 @@ const Home = () => {
             element={
               <CheckRestaurants
                 likedFoods={likedFoods}
-                dislikedFoods={dislikedFoods}
                 searchPrice={searchPrice}
                 searchLocation={searchLocation}
                 searchRadius={searchRadius}

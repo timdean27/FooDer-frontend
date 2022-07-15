@@ -3,50 +3,69 @@ import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import Price_Loc_sellec from "./SubPickFood/Price_Loc_sellec";
 
 const PickFood = ({
-  displayedGFood,
-  adjustGeneralFoodList,
-  radiusChange,
-  locationChange,
+  generalFoods,
+  currentGfoodIndex,
+  nextGfood,
+  previousGfood,
+  likeGfoods,
+  likedFoods,
   priceChange,
+  locationChange,
+  radiusChange,
   searchPrice,
   searchLocation,
   searchRadius,
 }) => {
   return (
     <div>
-        <div  className="displayedGFood">
-          <div className="displayedGFood-photo">
-            <img
-              src={`/images/foods/${displayedGFood.image_url}`}
-              alt={displayedGFood.name}
-            />
+      <div className="LikedFood-Container">
+        Foods that we Liked so far
+        {likedFoods.map((Gfood, index) => (
+          <div key={index} className="LikedFood-innerBox">
+            <div className="single-LikedFood-image">
+              <img
+                src={`/images/foods/${Gfood.image_url}`}
+                alt={`You Picked ${Gfood.name}`}
+              />
+            </div>
           </div>
+        ))}
+      </div>
+      <div className="displayedGFood">
+        <div className="displayedGFood-photo">
+          <img
+            src={`/images/foods/${generalFoods[currentGfoodIndex].image_url}`}
+            alt={generalFoods[currentGfoodIndex].name}
+          />
+        </div>
 
-          <div className="displayedGFood-description">
-            <p className="displayedGFood-name-display">{displayedGFood.name}</p>
-          </div>
-        
-        <div className="food-button-box" >
+        <div className="displayedGFood-description">
+          <p className="displayedGFood-name-display">
+            {generalFoods[currentGfoodIndex].name}
+          </p>
+        </div>
+
+        <div className="food-button-box">
           <button
-          className="selector-button"
+            className="selector-button"
             type="button"
-            onClick={() =>
-              adjustGeneralFoodList(displayedGFood.id, "case2DontSelectFood")
-            }
+            onClick={previousGfood}
           >
-            {displayedGFood.name} Not for me!
+            Show me that last one again
           </button>
           <button
-          className="selector-button"
+            className="selector-button"
             type="button"
-            onClick={() =>
-              adjustGeneralFoodList(displayedGFood.id, "case1SelectFood")
-            }
+            onClick={likeGfoods}
           >
-            Looks Good, I'll consider some {displayedGFood.name}
+            Lets add {generalFoods[currentGfoodIndex].name} to the Likes
+          </button>
+          <button className="selector-button" type="button" onClick={nextGfood}>
+            Looks Good,but lets keep looking
           </button>
         </div>
-        </div>
+      </div>
+
       <Price_Loc_sellec
         priceChange={priceChange}
         locationChange={locationChange}

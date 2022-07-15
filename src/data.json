@@ -1,74 +1,56 @@
 [
-    {
-      "id": 0,
-      "name": "Pizza",
-      "image_url": "pizza_test.jpg",
-      "Liked_Foods": [],
-      "disLiked_Foods": []
-      
-    },
-    {
-      "id": 1,
-      "name": "Sushi",
-      "image_url": "sushi_test.webp",
-      "Liked_Foods": [],
-      "disLiked_Foods": []
-      
-    },
-    {
-      "id": 2,
-      "name": "Burgers",
-      "image_url": "burger_test.webp",
-      "Liked_Foods": [],
-      "disLiked_Foods": []
-      
-    },
-    {
-      "id": 3,
-      "name": "Ramen",
-      "image_url": "ramen_test.jpg",
-      "Liked_Foods": [],
-      "disLiked_Foods": []
-      
-    },
-    {
-      "id": 4,
-      "name": "Steak",
-      "image_url": "steak_test.webp",
-      "Liked_Foods": [],
-      "disLiked_Foods": []
-      
-    },
-    {
-      "id": 5,
-      "name": "Tacos",
-      "image_url": "taco_test.png",
-      "Liked_Foods": [],
-      "disLiked_Foods": []
-      
-    },
-    {
-      "id": 6,
-      "name": "Salad",
-      "image_url": "salad_test.jpg",
-      "Liked_Foods": [],
-      "disLiked_Foods": []
-      
-    },
-    {
-      "id": 7,
-      "name": "Chicken Sandwich",
-      "image_url": "chicken_sandwich_test.jpg",
-      "Liked_Foods": [],
-      "disLiked_Foods": []
-      
-    },
-    {
-      "id": 8,
-      "name": "Ice Cream",
-      "image_url": "iceCream.jpg",
-      "Liked_Foods": [],
-      "disLiked_Foods": []
-      
-    }
-  ]
+  {
+    "id": 0,
+    "name": "Pizza",
+    "image_url": "pizza_test.jpg"
+    
+  },
+  {
+    "id": 1,
+    "name": "Sushi",
+    "image_url": "sushi_test.webp"
+    
+  },
+  {
+    "id": 2,
+    "name": "Burgers",
+    "image_url": "burger_test.webp"
+    
+  },
+  {
+    "id": 3,
+    "name": "Ramen",
+    "image_url": "ramen_test.jpg"
+    
+  },
+  {
+    "id": 4,
+    "name": "Steak",
+    "image_url": "steak_test.webp"
+    
+  },
+  {
+    "id": 5,
+    "name": "Tacos",
+    "image_url": "taco_test.png"
+    
+  },
+  {
+    "id": 6,
+    "name": "Salad",
+    "image_url": "salad_test.jpg"
+    
+  },
+  {
+    "id": 7,
+    "name": "Chicken Sandwich",
+    "image_url": "chicken_sandwich_test.jpg"
+    
+  },
+  {
+    "id": 8,
+    "name": "Ice Cream",
+    "image_url": "iceCream.jpg"
+    
+  }
+]
