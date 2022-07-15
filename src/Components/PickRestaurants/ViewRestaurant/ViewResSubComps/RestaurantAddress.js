@@ -13,10 +13,6 @@ const RestaurantAddress = ({RestaurantsDetail}) => {
       })
     }
 
-
-
-
-
     const findingAddress = () => {
         <div>Finding address</div>
     }

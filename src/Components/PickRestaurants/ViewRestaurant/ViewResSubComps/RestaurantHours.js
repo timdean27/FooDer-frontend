@@ -1,41 +1,30 @@
 import React, { useState, useEffect } from "react";
 
 const RestaurantHours = ({RestaurantsDetail}) => {
-const [schedule ,setSchedule] = useState({})
-console.log("innside hours", RestaurantsDetail)
-const findHours = () =>{
- RestaurantsDetail.hours.map((findHours, i) =>
-  {
-    console.log(typeof(findHours.open))
-      if(Object.keys(schedule).length == 0){
-      setSchedule(findHours.open)
-      console.log("setschedule in if ran" ,schedule)
-      }
-  }
-)}
 
-const loadedSchedule =()=>{
-  console.log("loadedSchedule" ,schedule.length)
-  return schedule.map((open,index)=>{
-    console.log("open.day" ,open.day)
-    let day = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"]
-    return (
-    <div key={index}>
-      <p>{day[open.day]}</p>
-      <p>{open.start}</p>
-      <p>{open.end}</p>
-    </div>
-)
-  })
+
+const findHours = () =>{
+ return RestaurantsDetail.hours[0].open.map((open,index)=>{
+  console.log("open.day" ,open.day)
+  let day = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"]
+  return (
+  <div key={index} className="schedule-container">
+
+    <p>{day[open.day]}</p>
+    <p>{open.start >=12 ? `${open.start}am` : `${open.start}pm`}</p>
+    <p>{open.end <12 ? `${open.end}am` : `${open.end}pm`}</p>
+
+  </div>
+)})
 }
 
+
 const findingHours =()=> {return(<div>RestaurantsDetail hours Not Available</div>)}
-const loadingSchedule =()=> {return(<div>Schedule Not Available</div>)}
+
 
   return (
     <div className="Restaurant-schedule">
-    {RestaurantsDetail.hours ? findHours() : findingHours()}
-    {Object.keys(schedule).length !== 0 ? loadedSchedule() : loadingSchedule()}
+    {RestaurantsDetail.hours[0].open ? findHours() : findingHours()}
     </div>
   )
 }
