@@ -18,9 +18,10 @@ const loadedSchedule =()=>{
   console.log("loadedSchedule" ,schedule.length)
   return schedule.map((open,index)=>{
     console.log("open.day" ,open.day)
+    let day = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"]
     return (
     <div key={index}>
-      <p>{open.day}</p>
+      <p>{day[open.day]}</p>
       <p>{open.start}</p>
       <p>{open.end}</p>
     </div>
