@@ -25,11 +25,12 @@ const PickFood = ({
         <div className="LikedFood-innerBox">
           {likedFoods.map((Gfood, index) => (
             <div key={index} className="single-LikedFood-image">
-            <button onClick={()=>removeLike(index)} className="single-LikedFood-button">
+            <button onClick={()=>removeLike(Gfood.id)} className="single-LikedFood-button">
               <img
                 src={`/images/foods/${Gfood.image_url}`}
                 alt={`You Picked ${Gfood.name}`}
               />
+              <p>{Gfood.id}</p>
             </button>
             </div>
           ))}

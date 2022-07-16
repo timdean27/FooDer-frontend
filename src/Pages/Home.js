@@ -65,17 +65,18 @@ const Home = () => {
     }
   }
 
-  function removeLike(index){
-    if(likedFoods.includes(generalFoods[index])){
+  function removeLike(ID){
+    console.log("generalFoods[index]", generalFoods[ID])
+    if(likedFoods.includes(generalFoods[ID])){
       let removelikeGfood =[...likedFoods]
       console.log("removelikeGfood", removelikeGfood)
-      removelikeGfood.indexOf(generalFoods[index])
+      let index = removelikeGfood.indexOf(generalFoods[ID])
       if (index > -1) {
         removelikeGfood.splice(index, 1);
       }
       setLikedFoods(removelikeGfood)
-      console.log("likedFoods", likedFoods)
       }
+      console.log("likedFoods", likedFoods)
   }
 
   return (
