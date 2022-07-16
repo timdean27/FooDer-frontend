@@ -82,18 +82,44 @@ header {
 }
 .LikedFood-Container{
 	max-width: 30vw;
+	max-height: 7vh;
+}
+.LikedFood-Container h3{
+	font-size: 25px;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 0;
+	margin-left: 5px;
+}
+.LikedFood-Container p{
+	font-size: 14px;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 0;
+	margin-left: 5px;
 }
 .LikedFood-innerBox{
 	display: flex;
 	max-width: 30vw;
-}
+	max-height: 7vh;
 
-.LikedFood-innerBox .single-LikedFood-image img{
-	flex-direction: row;
-	width: 20%;
-	margin: 10px;
 }
-
+.single-LikedFood-image img{
+	justify-content:space-between;
+	width: 5vw;
+	height: 6vh;
+	border: 1px solid darkblue;
+	margin: 1px;
+	border-radius:15px;
+}
+.single-LikedFood-button{
+	border: transparent;
+	background-color :transparent;
+	width: 5vw;
+	height: 6vh;
+	margin: 1px;
+	border-radius:15px;
+}
 .displayedGFood-description {
 	text-align: left;
 	width: 300px;

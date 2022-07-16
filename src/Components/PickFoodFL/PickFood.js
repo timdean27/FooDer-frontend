@@ -7,6 +7,7 @@ const PickFood = ({
   currentGfoodIndex,
   nextGfood,
   previousGfood,
+  removeLike,
   likeGfoods,
   likedFoods,
   priceChange,
@@ -19,17 +20,20 @@ const PickFood = ({
   return (
     <div>
       <div className="LikedFood-Container">
-        Foods that we Liked so far
-        {likedFoods.map((Gfood, index) => (
-          <div key={index} className="LikedFood-innerBox">
-            <div className="single-LikedFood-image">
+        <h3>Foods that you Liked so far</h3>
+        <p>click to remove</p>
+        <div className="LikedFood-innerBox">
+          {likedFoods.map((Gfood, index) => (
+            <div key={index} className="single-LikedFood-image">
+            <button onClick={()=>removeLike(index)} className="single-LikedFood-button">
               <img
                 src={`/images/foods/${Gfood.image_url}`}
                 alt={`You Picked ${Gfood.name}`}
               />
+            </button>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <div className="displayedGFood">
         <div className="displayedGFood-photo">
@@ -59,9 +63,10 @@ const PickFood = ({
             onClick={likeGfoods}
           >
             Lets add {generalFoods[currentGfoodIndex].name} to the Likes
+            
           </button>
           <button className="selector-button" type="button" onClick={nextGfood}>
-            Looks Good,but lets keep looking
+            Lets keep looking
           </button>
         </div>
       </div>

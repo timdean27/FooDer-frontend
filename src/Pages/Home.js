@@ -65,19 +65,32 @@ const Home = () => {
     }
   }
 
+  function removeLike(index){
+    if(likedFoods.includes(generalFoods[index])){
+      let removelikeGfood =[...likedFoods]
+      console.log("removelikeGfood", removelikeGfood)
+      removelikeGfood.indexOf(generalFoods[index])
+      if (index > -1) {
+        removelikeGfood.splice(index, 1);
+      }
+      setLikedFoods(removelikeGfood)
+      console.log("likedFoods", likedFoods)
+      }
+  }
 
   return (
     <div>
       <Header />
       <div >
         <Routes>
-          {(likedFoods.length < 3)? (
+          {(likedFoods.length < 3 && currentGfoodIndex < generalFoods.length)? (
             <Route
               path="/"
               element={
                 <PickFood
                   generalFoods={generalFoods}
                   currentGfoodIndex={currentGfoodIndex}
+                  removeLike={removeLike}
                   nextGfood= {nextGfood}
                   previousGfood={previousGfood}
                   likeGfoods={likeGfoods}
