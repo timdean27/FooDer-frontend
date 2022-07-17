@@ -10,9 +10,11 @@ const ShowPickedGFood = ({
   searchPrice,
   searchLocation,
   searchRadius,
+  resetGfoods,
 }) => {
   return (
     <div>
+    <button onClick={resetGfoods}>Resest Liked Foods</button>
     <div className="Selected-GFoods-Container">
         <div className="GFoods-Box">
           {likedFoods.map((Gfood, index) => (

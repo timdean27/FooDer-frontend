@@ -79,6 +79,11 @@ const Home = () => {
       console.log("likedFoods", likedFoods)
   }
 
+  const resetGfoods = ()=>{
+    setLikedFoods([])
+    setCurrentGfoodIndex(0)
+   }
+
   return (
     <div>
       <Header />
@@ -118,6 +123,7 @@ const Home = () => {
                   searchPrice={searchPrice}
                   searchLocation={searchLocation}
                   searchRadius={searchRadius}
+                  resetGfoods={resetGfoods}
                 />
               }
             />
