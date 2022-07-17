@@ -298,8 +298,14 @@ overflow-wrap: break-word;
 	width: 13.6%;
 	text-align: center;
 	margin-bottom: 5px;
+}
+.schedule-container p {
 	font-size:12px;
 	color: #777;
+}
+.schedule-container h6 {
+	font-size:12px;
+	font-weight: bold;
 }
 
 /* RestaurantAddress */

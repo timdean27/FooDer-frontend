@@ -53,7 +53,7 @@ const findHours = () =>{
   return (
   <div key={index} className="schedule-container">
 
-    <p>{day[open.day]}</p>
+    <h6>{day[open.day]}</h6>
     <p>{convertTime(open.start)}</p>
     <p>{convertTime(open.end)}</p>
 
