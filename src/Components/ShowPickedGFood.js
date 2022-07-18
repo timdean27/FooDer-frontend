@@ -23,7 +23,7 @@ const ShowPickedGFood = ({
               <h1>{Gfood.id}</h1>
               <div className="single-Gfood-image">
                 <img
-                  src={`/images/foods/${Gfood.image_url}`}
+                  src={Gfood.image_url}
                   alt={`You Picked ${Gfood.name}`}
                 />
               </div>

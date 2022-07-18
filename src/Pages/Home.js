@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 
-import data from "../data.json";
+// import data from "../data.json";
 
 import NavHeader from "../Components/NavHeader";
 import PickFood from "../Components/PickFoodFL/PickFood";
 import ShowPickedGFood from "../Components/ShowPickedGFood";
 import CheckRestaurants from "./CheckRestaurants";
 
-const Home = () => {
+
+
+const Home = ({generalFoods, accessToken ,setAccessToken , setUserSignedIn}) => {
   const [searchPrice, setSearchPrice] = useState(1);
   const [searchLocation, setSearchLocation] = useState();
   const [searchRadius, setSearchRadius] = useState(8049);
 
-  console.log("data", data)
 
   const priceChange = (event) => {
     event.preventDefault();
@@ -37,7 +38,7 @@ const Home = () => {
   console.log("searchRadius", searchRadius);
 
 ///////////////logic for Selcting food cards
-  const [generalFoods, setGeneralFoods] = useState(data);
+  // const [generalFoods, setGeneralFoods] = useState(data);
   const [currentGfoodIndex, setCurrentGfoodIndex] = useState(0);
   const [likedFoods,setLikedFoods] = useState([])
   console.log("generalFoods", generalFoods)
@@ -66,27 +67,34 @@ const Home = () => {
   }
 
   function removeLike(ID){
-    console.log("generalFoods[index]", generalFoods[ID])
-    if(likedFoods.includes(generalFoods[ID])){
-      let removelikeGfood =[...likedFoods]
-      console.log("removelikeGfood", removelikeGfood)
-      let index = removelikeGfood.indexOf(generalFoods[ID])
+    console.log("ID", ID)
+    console.log("generalFoods[index]", generalFoods)
+    console.log("generalFoods[index]", generalFoods)
+    let removelikeGfood =[...likedFoods]
+    console.log("removelikeGfood", removelikeGfood)
+    likedFoods.map((like,i) => {
+      console.log("likes",like.id)
+      if(like.id == ID){
+      let index = removelikeGfood.indexOf(like)
+      console.log("index", index)
       if (index > -1) {
         removelikeGfood.splice(index, 1);
       }
       setLikedFoods(removelikeGfood)
-      }
+    }})
       console.log("likedFoods", likedFoods)
   }
 
   const resetGfoods = ()=>{
+    console.log("reset food running")
     setLikedFoods([])
     setCurrentGfoodIndex(0)
    }
 
   return (
     <div>
-      <NavHeader />
+      <NavHeader accessToken={accessToken} setAccessToken={setAccessToken} setUserSignedIn={setUserSignedIn}/>
+      
       <div >
         <Routes>
           {(likedFoods.length < 3 && currentGfoodIndex < generalFoods.length)? (

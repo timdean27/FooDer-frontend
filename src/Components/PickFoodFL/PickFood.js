@@ -27,7 +27,7 @@ const PickFood = ({
             <div key={index} className="single-LikedFood-image">
             <button onClick={()=>removeLike(Gfood.id)} className="single-LikedFood-button">
               <img
-                src={`/images/foods/${Gfood.image_url}`}
+                src={Gfood.image_url}
                 alt={`You Picked ${Gfood.name}`}
               />
               <p>{Gfood.id}</p>
@@ -39,7 +39,7 @@ const PickFood = ({
       <div className="displayedGFood">
         <div className="displayedGFood-photo">
           <img
-            src={`/images/foods/${generalFoods[currentGfoodIndex].image_url}`}
+            src={generalFoods[currentGfoodIndex].image_url}
             alt={generalFoods[currentGfoodIndex].name}
           />
         </div>

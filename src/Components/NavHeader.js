@@ -3,8 +3,8 @@ import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import AddFood from "../Components/Modals/AddFood";
 import LoginPage from "./Modals/LoginPage/LoginPage";
 
-const NavHeader = ({accessToken}) => {
-  const [loginData, setLoginData] = useState({
+const NavHeader = ({accessToken ,setAccessToken , setUserSignedIn}) => {
+  const [loginData, setLoginData , ] = useState({
     loginName: '',
     email: '',
     password:"",
@@ -17,18 +17,13 @@ const NavHeader = ({accessToken}) => {
   const closeLogModalFunc = () => {
     setShowModal(false);
   }
-const loginFunction = (e) => {
-  e.preventDefault()
-  setLoginData({...loginData, [e.target.id]: e.target.value})
-  console.log("Login Data", loginData)
-}
 
   return (
     <header>
       <nav>
       <AddFood accessToken={accessToken}/>
-      {!logedIn ? <button className="login-button" onClick={loginFunc}>Log In</button> : <button>Log Out</button>}
-      {showModal ? <LoginPage closeLogModalFunc={closeLogModalFunc} loginFunction={loginFunction}/> : null}
+      {!logedIn ? <button className="login-button" onClick={loginFunc} >Log In</button> : <button>Log Out</button>}
+      {showModal ? <LoginPage closeLogModalFunc={closeLogModalFunc} setAccessToken={setAccessToken} setUserSignedIn={setUserSignedIn}/> : null}
       </nav>
   </header>
   )

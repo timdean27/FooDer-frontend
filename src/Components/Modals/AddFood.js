@@ -11,7 +11,6 @@ const AddFood = ({accessToken, userSignedIn}) => {
       })
       
         const handleChange = (e) => {
-            e.preventDefault()
             setfoodFormData({...foodFormData, [e.target.id]: e.target.value})
         }
     
