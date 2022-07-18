@@ -5,13 +5,14 @@ import axios from "axios";
 
 import Home from "../Pages/Home";
 
+
 const DjGfoodAPI = () => {
     const [userSignedIn, setUserSignedIn] = useState(localStorage.getItem('user'))
+    const [accessToken, setAccessToken] = useState("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4MTA4MTM0LCJpYXQiOjE2NTgxMDc4MzQsImp0aSI6IjVkY2VhYjdhYzMxNjQwMTJhODU0ZTY3YWM3YjMzODc4IiwidXNlcl9pZCI6MX0.ifqG3ZE4A5ZiGALYUcddgXw8o8mJKrLf_klpIea3dvw")
     // const [gfoodData, setGfoodData] = useState([])
     const [generalFoods, setGeneralFoods] = useState([]);
     useEffect(() => {
-        const accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4MDIyMjc4LCJpYXQiOjE2NTgwMjE5NzgsImp0aSI6ImQ2MTU4ZWQwYzA1ZjQ2Zjk5YmUwOWQwMDM3ZGZiOGYwIiwidXNlcl9pZCI6MX0.jlBhFodkv06vUUm66Rgz2pDM4ciOQhPbOY8kFe1n9eU"
-        const url = "http://localhost:8000/gfoods_protected/"
+        const url = "http://localhost:8000/gfoods_view_protected/"
         const opts = {
           method: 'GET',
           headers: {
@@ -30,7 +31,10 @@ const DjGfoodAPI = () => {
       }, [])
 
   return (
-    <Home generalFoods={generalFoods}/>
+    <div>
+    <Home generalFoods={generalFoods} accessToken={accessToken}/>
+    
+    </div>
   )
 }
 

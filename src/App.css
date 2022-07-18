@@ -13,15 +13,6 @@ body {
 	margin: auto;
 }
 
-header {
-	background-color: red;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 10px 5px;
-	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
-}
 
 .selector-button
 {
@@ -312,4 +303,52 @@ overflow-wrap: break-word;
 
 .Address-container{
 	font-size:20px;
+}
+
+/* NavHeader */
+
+header {
+	background-color: red;
+	overflow: hidden;
+	display: flex;
+	padding: 1px 1px;
+	height: 5vh;
+}
+nav{
+	height: 5vh;
+}
+nav .login-button {
+    font-size: 16px;
+	position:absolute;
+	right:0;
+	top: 5px;
+	margin-right: 5px;
+
+}
+
+
+/* Login Page */
+.login-modal{
+	position: absolute;
+	color:aliceblue;
+    left: 0;
+    right: 0;
+    top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+    height: 300px;
+    background-color: black;
+    border-radius: 10px;
+    padding: 40px;
+}
+.login-modal input{
+	color: black;
+}
+.close-log-mod-btn{
+	position: absolute;
+	color:aliceblue;
+    right: 5px;
+	top: 4px;
+	background-color:black
 }

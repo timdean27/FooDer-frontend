@@ -3,7 +3,7 @@ import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 
 import data from "../data.json";
 
-import Header from "../Components/Header";
+import NavHeader from "../Components/NavHeader";
 import PickFood from "../Components/PickFoodFL/PickFood";
 import ShowPickedGFood from "../Components/ShowPickedGFood";
 import CheckRestaurants from "./CheckRestaurants";
@@ -86,7 +86,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+      <NavHeader />
       <div >
         <Routes>
           {(likedFoods.length < 3 && currentGfoodIndex < generalFoods.length)? (
