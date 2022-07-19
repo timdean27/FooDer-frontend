@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 
-const LoginPage = ({ closeLogModalFunc, accessToken , setAccessToken , setUserSignedIn }) => {
+const LoginPage = ({
+  closeLogModalFunc,
+  accessToken,
+  setAccessToken,
+  setUserSignedIn,
+}) => {
   const loginEndpoint = "api/token/";
 
   const [formInfo, setFromInfo] = useState({ username: "", password: "" });
@@ -57,15 +62,13 @@ const LoginPage = ({ closeLogModalFunc, accessToken , setAccessToken , setUserSi
         if (!data) {
           console.log(`problem with network request: ${networkErrMsg}`);
         } else {
-          console.log(data);
-
-        //   setUserSignedIn("fake_user");
+          console.log("data from Login page", data);
 
           setAccessToken(data.access);
-          // add tokens to localstorage here
+          setUserSignedIn(data.user);
 
           localStorage.setItem("access_token", data.access);
-          localStorage.setItem("user", "fake_user");
+          localStorage.setItem("user", data.user);
           // redirect here
         }
       });
@@ -91,10 +94,12 @@ const LoginPage = ({ closeLogModalFunc, accessToken , setAccessToken , setUserSi
           type="text"
           onChange={handleChange}
         />
-        <button type="submit">Login</button>
+        <button className="login-btn" type="submit">
+          Login
+        </button>
       </form>
-        <p>{networkErrMsg}</p>
-        <p>{clientErrMsg}</p>
+      <p>{networkErrMsg}</p>
+      <p>{clientErrMsg}</p>
     </div>
   );
 };

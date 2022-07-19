@@ -33,12 +33,10 @@ const PickRestaurants = ({
       <Link to={`/`}>
         <button>Back to Food Options</button>
       </Link>
-      <h3>Running Search for Restaurants with '{FoodSearchForOBJ.name}'</h3>
-      <h3>
-        Showing {currentRestaurantIndex +1} of {restaurantsDATA.length}
-      </h3>
+      <h4>
+        Showing {currentRestaurantIndex +1} of {restaurantsDATA.length} Restaurants with '{FoodSearchForOBJ.name}'
+      </h4>
       <div className="PickRestaurants-mainCard">
-        <h2>RestaurantID={restaurantsDATA[currentRestaurantIndex].id}</h2>
         <RestaurantsDetailComp
           restaurantID={restaurantsDATA[currentRestaurantIndex].id}
         />

@@ -3,7 +3,7 @@ import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 
 
 
-const AddFood = ({accessToken, userSignedIn}) => {
+const AddFood = ({accessToken, userSignedIn , closeNewFoodMoFunc}) => {
       const [foodFormData, setfoodFormData] = useState({
         name: '',
         image_url: '',
@@ -28,14 +28,18 @@ const AddFood = ({accessToken, userSignedIn}) => {
           fetch(url, opts)
           .then(res => res.json())
           .then(data => console.log(data))
+          .then(closeNewFoodMoFunc())
         }
         
         return (
-            <div>
+            <div className="newFood-modal">
+            <button className="close-log-mod-btn" onClick={closeNewFoodMoFunc}>
+              X
+            </button>
                 <form onSubmit={handleSubmit}>
-                    <input id="name" type="text" onChange={handleChange}/>
-                    <input id="image_url" type="text" onChange={handleChange}/>
-                    <button type="submit">Add New Food</button>
+                    <input id="name" type="text" placeholder="Name" onChange={handleChange}/>
+                    <input id="image_url" type="text" placeholder="image url" onChange={handleChange}/>
+                    <button className="addFoodPG-btn" type="submit">Add New Food</button>
                 </form>
             </div>
       )

@@ -9,21 +9,31 @@ const NavHeader = ({accessToken ,setAccessToken , setUserSignedIn}) => {
     email: '',
     password:"",
   })
-  const [showModal, setShowModal] = useState(false)
+  const [showNewFoodModal, setShowNewFoodModal] = useState(false)
+  const [showLoginModal, setShowLoginModal] = useState(false)
   const [logedIn, setLogedIn] = useState(false)
-  const loginFunc = () => {
-    setShowModal(true);
+  
+  const openloginMoFunc = () => {
+    setShowLoginModal(true);
   };
   const closeLogModalFunc = () => {
-    setShowModal(false);
+    setShowLoginModal(false);
+  }
+  
+  const openNewFoodMoFunc = () => {
+    setShowNewFoodModal(true);
+  };
+  const closeNewFoodMoFunc = () => {
+    setShowNewFoodModal(false);
   }
 
   return (
     <header>
       <nav>
-      <AddFood accessToken={accessToken}/>
-      {!logedIn ? <button className="login-button" onClick={loginFunc} >Log In</button> : <button>Log Out</button>}
-      {showModal ? <LoginPage closeLogModalFunc={closeLogModalFunc} setAccessToken={setAccessToken} setUserSignedIn={setUserSignedIn}/> : null}
+      <button className="nav-addFood-btn" onClick={openNewFoodMoFunc} >Add New Food</button>
+      {showNewFoodModal ? <AddFood accessToken={accessToken} closeNewFoodMoFunc={closeNewFoodMoFunc}/> : null}
+      {!logedIn ? <button className="login-button" onClick={openloginMoFunc} >Log In</button> : <button>Log Out</button>}
+      {showLoginModal ? <LoginPage closeLogModalFunc={closeLogModalFunc} setAccessToken={setAccessToken} setUserSignedIn={setUserSignedIn}/> : null}
       </nav>
   </header>
   )
