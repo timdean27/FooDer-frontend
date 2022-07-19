@@ -40,7 +40,7 @@ const DjGfoodAPI = () => {
 
   useEffect(() => {
     grabFoodDataFunc();
-  }, [generalFoods.code]);
+  }, [accessToken]);
 
   console.log("generalFoods", generalFoods);
   return (
