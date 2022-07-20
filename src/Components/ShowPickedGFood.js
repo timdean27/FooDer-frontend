@@ -20,7 +20,6 @@ const ShowPickedGFood = ({
           {likedFoods.map((Gfood, index) => (
             <div key={index} className="single-Gfood">
               <h1>You liked {Gfood.name}</h1>
-              <h1>{Gfood.id}</h1>
               <div className="single-Gfood-image">
                 <img
                   src={Gfood.image_url}

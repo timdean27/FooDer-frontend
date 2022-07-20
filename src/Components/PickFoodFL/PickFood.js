@@ -30,7 +30,6 @@ const PickFood = ({
                 src={Gfood.image_url}
                 alt={`You Picked ${Gfood.name}`}
               />
-              <p>{Gfood.id}</p>
             </button>
             </div>
           ))}
