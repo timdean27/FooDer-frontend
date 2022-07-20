@@ -76,6 +76,7 @@ const LoginPage = ({
 
   return (
     <div className="login-modal">
+    <h3>Log In</h3>
       <button className="close-log-mod-btn" onClick={closeLogModalFunc}>
         X
       </button>
@@ -91,7 +92,7 @@ const LoginPage = ({
         <input
           id="password"
           name="username"
-          type="text"
+          type="password"
           onChange={handleChange}
         />
         <button className="login-btn" type="submit">

@@ -354,11 +354,11 @@ nav button {
     margin-left: auto;
     margin-right: auto;
 	align-items: center;
-	max-width: 20vw;
-    height: 25vh;
+	max-width: 25vw;
+    height: 30vh;
     background-color: black;
     border-radius: 10px;
-    padding: 60px;
+    padding: 30px;
 }
 .login-modal input{
 	color: black;
@@ -379,7 +379,7 @@ nav button {
 
 .newFood-modal{
 	position: absolute;
-	color:aliceblue;
+	color:black;
     left: 5vw;
     top: 3vh;
     margin-left: auto;

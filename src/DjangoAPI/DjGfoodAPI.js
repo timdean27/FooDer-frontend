@@ -19,7 +19,6 @@ const DjGfoodAPI = () => {
 
   const grabFoodDataFunc = () => {
     console.log("grabFoodDataFunc ran")
-    // const accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4MTY2NTgyLCJpYXQiOjE2NTgxNjYyODIsImp0aSI6ImE5MTAxZDhkM2UzYTQyMDQ4NzBkNDVhMmVkNjA5MDhiIiwidXNlcl9pZCI6MX0.eGnh9IAL1E7XBQcBqFDpyFkAlPOl-RVWY6IkjwBsw7U"
     const url = "http://localhost:8000/gfoods_view_protected/";
     const opts = {
       method: "GET",

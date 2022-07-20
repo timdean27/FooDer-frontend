@@ -43,7 +43,7 @@ const NavHeader = ({accessToken ,setAccessToken , setUserSignedIn}) => {
       {showNewFoodModal ? <AddFood accessToken={accessToken} closeNewFoodMoFunc={closeNewFoodMoFunc}/> : null}
 
       <button className="SignUP-button" onClick={openSignUPMoFunc} >Sign UP</button>
-      {showSignUPModal ? <SignUP accessToken={accessToken} closeSignUPMoFunc={closeSignUPMoFunc}/> : null}
+      {showSignUPModal ? <SignUP accessToken={accessToken} closeSignUPMoFunc={closeSignUPMoFunc} setUserSignedIn={setUserSignedIn}/> : null}
       
       
 
