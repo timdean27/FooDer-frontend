@@ -15,7 +15,7 @@ const RestaurantsReviews = (restaurantID) => {
     // console.log("getResturantsReviews ran pathReviews", pathReviews);
     const ReviewParamsTOBack = {
       method: "GET",
-      url: "http://localhost:3500/api/Reviews",
+      url: "https://fooder-backend-yelp-api.herokuapp.com/api/Reviews",
       params: { pathReviews },
     };
     await axios

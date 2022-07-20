@@ -360,9 +360,11 @@ nav button {
     background-color: black;
     border-radius: 10px;
     padding: 30px;
+
 }
 .login-modal input{
 	color: black;
+	font-size: 18px;
 }
 .close-log-mod-btn{
 	position: absolute;
@@ -760,7 +762,7 @@ nav button {
 		  margin-left: auto;
 		  margin-right: auto;
 		  align-items: center;
-		  max-width: 50vw;
+		  max-width: 55vw;
 		  height: 35vh;
 		  background-color: black;
 		  border-radius: 10px;
@@ -768,6 +770,7 @@ nav button {
 	  }
 	  .login-modal input{
 		  color: black;
+		  font-size:12px;
 	  }
 	  .close-log-mod-btn{
 		  position: absolute;

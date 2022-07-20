@@ -17,7 +17,7 @@ const RestaurantsDetailComp = (restaurantID) => {
     // console.log("getResturantsDetail ran pathDetail", pathDetail);
     const DetailParamsTOBack = {
       method: "GET",
-      url: "http://localhost:3500/api/Detail",
+      url: "https://fooder-backend-yelp-api.herokuapp.com/api/Detail",
       params: { pathDetail },
     };
     await axios

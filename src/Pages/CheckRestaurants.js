@@ -64,13 +64,13 @@ const CheckRestaurants = ({
     const path = "/businesses/search";
     const ParamsTOBack = {
       method: "GET",
-      url: "http://localhost:3500/apiBS",
+      url: "https://fooder-backend-yelp-api.herokuapp.com/apiBS",
       params: { searchQuery, path },
     };
     await axios
       .request(ParamsTOBack)
       .then((res) => {
-        // console.log("data insisde fetch funciton "/businesses/search" , res.data);
+        console.log("data insisde fetch funciton /businesses/search" , res.data);
         setRestaurantsDATA(res.data.businesses);
       })
       .catch((error) => {
