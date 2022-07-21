@@ -19,7 +19,8 @@ const DjGfoodAPI = () => {
 
   const grabFoodDataFunc = () => {
     console.log("grabFoodDataFunc ran")
-    const url = "http://localhost:8000/gfoods_view_protected/";
+    const REACT_APP_DATABASE_URL_DJANGO = process.env.REACT_APP_DATABASE_URL_DJANGO;
+    const loginEndpoint = "gfoods_view_protected/";
     const opts = {
       method: "GET",
       headers: {
@@ -27,7 +28,8 @@ const DjGfoodAPI = () => {
         Authorization: `Bearer ${accessToken}`,
       },
     };
-    fetch(url, opts)
+
+    fetch(REACT_APP_DATABASE_URL_DJANGO + loginEndpoint, opts)
       .then((res) => res.json())
       .then((data) => {
         console.log("data insisde DjGfood fetch", data);

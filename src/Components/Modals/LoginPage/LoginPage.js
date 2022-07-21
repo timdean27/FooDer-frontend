@@ -7,7 +7,7 @@ const LoginPage = ({
   setAccessToken,
   setUserSignedIn,
 }) => {
-  const loginEndpoint = "api/token/";
+  
 
   const [formInfo, setFromInfo] = useState({ username: "", password: "" });
   const [networkErrMsg, setNetworkErrMsg] = useState(null);
@@ -40,10 +40,17 @@ const LoginPage = ({
     if (!clientFormValidation(formInfo)) {
       return;
     }
+    const REACT_APP_DATABASE_URL_DJANGO = process.env.REACT_APP_DATABASE_URL_DJANGO;
+    if(process.env.DATABASE_URL_DJANGO) { 
+      console.log('It is set!'); 
+    }
+    else { 
+        console.log('No set!'); 
+    }
 
-    const apiUrl = "http://localhost:8000/";
+    const loginEndpoint = "api/token/";
 
-    fetch(apiUrl + loginEndpoint, {
+    fetch(REACT_APP_DATABASE_URL_DJANGO + loginEndpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

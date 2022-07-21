@@ -37,9 +37,12 @@ const SignUP = ({closeSignUPMoFunc , setUserSignedIn}) => {
       if (!clientFormValidation(formInfo)) {
           return
       }
-      const apiUrl = "http://localhost:8000/api/users/";
-      
-      fetch( apiUrl, 
+
+      const REACT_APP_DATABASE_URL_DJANGO = process.env.REACT_APP_DATABASE_URL_DJANGO;
+
+      const loginEndpoint = "api/users/";
+
+      fetch( REACT_APP_DATABASE_URL_DJANGO + loginEndpoint, 
               {
                   method: 'POST',
                   headers: {

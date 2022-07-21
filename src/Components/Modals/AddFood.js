@@ -16,7 +16,8 @@ const AddFood = ({accessToken, userSignedIn , closeNewFoodMoFunc}) => {
     
         const handleSubmit = (e) => {
           e.preventDefault()
-          const url = "http://localhost:8000/gfoods_create_protected/"
+          const REACT_APP_DATABASE_URL_DJANGO = process.env.REACT_APP_DATABASE_URL_DJANGO;
+          const loginEndpoint = "gfoods_create_protected/";
           const opts = {
             method: 'POST',
             headers: {
@@ -25,7 +26,7 @@ const AddFood = ({accessToken, userSignedIn , closeNewFoodMoFunc}) => {
             },
             body: JSON.stringify(foodFormData)
           }
-          fetch(url, opts)
+          fetch(REACT_APP_DATABASE_URL_DJANGO + loginEndpoint, opts)
           .then(res => res.json())
           .then(data => console.log(data))
           .then(closeNewFoodMoFunc())
