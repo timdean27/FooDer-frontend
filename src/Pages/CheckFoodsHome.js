@@ -64,6 +64,7 @@ const CheckFoodsHome = ({generalFoods, accessToken ,setAccessToken , setUserSign
     setLikedFoods(addlikeGfood)
     console.log("likedFoods", likedFoods)
     }
+    nextGfood()
   }
 
   function removeLike(ID){
