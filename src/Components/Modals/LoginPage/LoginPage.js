@@ -78,7 +78,7 @@ const LoginPage = ({
           localStorage.setItem("user", formInfo.username);
           // redirect here
         }
-      });
+      }).finally(closeLogModalFunc());
   };
 
   return (

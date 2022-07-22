@@ -5,6 +5,7 @@ import axios from "axios";
 
 import CheckFoodsHome from "../Pages/CheckFoodsHome";
 import Home from "../Pages/Home";
+import NavHeader from "../Components/NavHeader";
 
 const DjGfoodAPI = () => {
   const [userSignedIn, setUserSignedIn] = useState(
@@ -44,19 +45,33 @@ const DjGfoodAPI = () => {
   return (
     <div>
       {!accessToken ? (
+        <div>
         <Home
           accessToken={accessToken}
           setAccessToken={setAccessToken}
           setUserSignedIn={setUserSignedIn}
           grabFoodDataFunc={grabFoodDataFunc}
         ></Home>
+        <NavHeader
+        accessToken={accessToken}
+        setAccessToken={setAccessToken}
+        setUserSignedIn={setUserSignedIn}
+        userSignedIn={userSignedIn}
+        ></NavHeader>
+      </div>
+      
       ) : (
+        <div>
         <CheckFoodsHome
           generalFoods={generalFoods}
           accessToken={accessToken}
           setAccessToken={setAccessToken}
           setUserSignedIn={setUserSignedIn}
+          grabFoodDataFunc={grabFoodDataFunc}
+          userSignedIn={userSignedIn}
         />
+    
+        </div>
       )}
     </div>
   );

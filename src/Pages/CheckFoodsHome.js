@@ -8,17 +8,21 @@ import PickFood from "../Components/PickFoodFL/PickFood";
 import ShowPickedGFood from "../Components/ShowPickedGFood";
 import CheckRestaurants from "./CheckRestaurants";
 
-
-
-const CheckFoodsHome = ({generalFoods, accessToken ,setAccessToken , setUserSignedIn}) => {
+const CheckFoodsHome = ({
+  generalFoods,
+  accessToken,
+  setAccessToken,
+  grabFoodDataFunc,
+  setUserSignedIn,
+  userSignedIn,
+}) => {
   const [searchPrice, setSearchPrice] = useState(1);
   const [searchLocation, setSearchLocation] = useState();
   const [searchRadius, setSearchRadius] = useState(8049);
 
-
   const priceChange = (event) => {
     event.preventDefault();
-    let newPrice = parseInt(event.target.value)
+    let newPrice = parseInt(event.target.value);
     setSearchPrice(newPrice);
   };
   console.log("searchPrice", searchPrice);
@@ -37,12 +41,21 @@ const CheckFoodsHome = ({generalFoods, accessToken ,setAccessToken , setUserSign
   };
   console.log("searchRadius", searchRadius);
 
-///////////////logic for Selcting food cards
+  ///////////////logic for Selcting food cards
   // const [generalFoods, setGeneralFoods] = useState(data);
   const [currentGfoodIndex, setCurrentGfoodIndex] = useState(0);
-  const [likedFoods,setLikedFoods] = useState([])
-  console.log("generalFoods", generalFoods)
+  const [likedFoods, setLikedFoods] = useState([]);
+  const [currentFOODID, setCurrentFOODID] = useState(1);
+  console.log("generalFoods", generalFoods);
 
+  useEffect(() => {
+    if (generalFoods.length > 1 && currentGfoodIndex >= 0 && currentGfoodIndex < generalFoods.length ) {
+      console.log("generalFoods.length ", generalFoods.length )
+      console.log("currentGfoodIndex", currentGfoodIndex);
+      console.log("generalFoods[currentGfoodIndex].id", generalFoods[currentGfoodIndex].id)
+      setCurrentFOODID(generalFoods[currentGfoodIndex].id);
+    }
+  }, [currentGfoodIndex]);
 
   const nextGfood = () => {
     if (currentGfoodIndex < generalFoods.length) {
@@ -51,54 +64,63 @@ const CheckFoodsHome = ({generalFoods, accessToken ,setAccessToken , setUserSign
     }
   };
   const previousGfood = () => {
-    if (currentGfoodIndex != 0) {
+    if (currentGfoodIndex !== 0) {
       let lastcurrentGfoodIndex = currentGfoodIndex - 1;
       setCurrentGfoodIndex(lastcurrentGfoodIndex);
     }
   };
+
   const likeGfoods = () => {
-    if(!likedFoods.includes(generalFoods[currentGfoodIndex])){
-    let addlikeGfood =[...likedFoods]
-    console.log("addlikeGfood", addlikeGfood)
-    addlikeGfood.push(generalFoods[currentGfoodIndex])
-    setLikedFoods(addlikeGfood)
-    console.log("likedFoods", likedFoods)
+    if (!likedFoods.includes(generalFoods[currentGfoodIndex])) {
+      let addlikeGfood = [...likedFoods];
+      console.log("addlikeGfood", addlikeGfood);
+      addlikeGfood.push(generalFoods[currentGfoodIndex]);
+      setLikedFoods(addlikeGfood);
+      console.log("likedFoods", likedFoods);
     }
-    nextGfood()
-  }
+    nextGfood();
+  };
 
-  function removeLike(ID){
-    console.log("ID", ID)
-    console.log("generalFoods[index]", generalFoods)
-    console.log("generalFoods[index]", generalFoods)
-    let removelikeGfood =[...likedFoods]
-    console.log("removelikeGfood", removelikeGfood)
-    likedFoods.map((like,i) => {
-      console.log("likes",like.id)
-      if(like.id == ID){
-      let index = removelikeGfood.indexOf(like)
-      console.log("index", index)
-      if (index > -1) {
-        removelikeGfood.splice(index, 1);
+  function removeLike(ID) {
+    console.log("ID", ID);
+    console.log("generalFoods[index]", generalFoods);
+    let removelikeGfood = [...likedFoods];
+    console.log("removelikeGfood", removelikeGfood);
+    likedFoods.map((like, i) => {
+      console.log("likes", like.id);
+      if (like.id == ID) {
+        let index = removelikeGfood.indexOf(like);
+        console.log("index", index);
+        if (index > -1) {
+          removelikeGfood.splice(index, 1);
+        }
+        setLikedFoods(removelikeGfood);
       }
-      setLikedFoods(removelikeGfood)
-    }})
-      console.log("likedFoods", likedFoods)
+    });
+    console.log("likedFoods", likedFoods);
   }
 
-  const resetGfoods = ()=>{
-    console.log("reset food running")
-    setLikedFoods([])
-    setCurrentGfoodIndex(0)
-   }
+  const resetGfoods = () => {
+    console.log("reset food running");
+    setLikedFoods([]);
+    setCurrentGfoodIndex(0);
+  };
 
   return (
     <div>
-      <NavHeader accessToken={accessToken} setAccessToken={setAccessToken} setUserSignedIn={setUserSignedIn}/>
-      
-      <div >
+      <NavHeader
+        accessToken={accessToken}
+        setAccessToken={setAccessToken}
+        setUserSignedIn={setUserSignedIn}
+        grabFoodDataFunc={grabFoodDataFunc}
+        generalFoods={generalFoods}
+        currentFOODID={currentFOODID}
+        userSignedIn={userSignedIn}
+      />
+
+      <div>
         <Routes>
-          {(likedFoods.length < 3 && currentGfoodIndex < generalFoods.length)? (
+          {likedFoods.length < 3 && currentGfoodIndex < generalFoods.length ? (
             <Route
               path="/"
               element={
@@ -106,7 +128,7 @@ const CheckFoodsHome = ({generalFoods, accessToken ,setAccessToken , setUserSign
                   generalFoods={generalFoods}
                   currentGfoodIndex={currentGfoodIndex}
                   removeLike={removeLike}
-                  nextGfood= {nextGfood}
+                  nextGfood={nextGfood}
                   previousGfood={previousGfood}
                   likeGfoods={likeGfoods}
                   likedFoods={likedFoods}
@@ -121,7 +143,6 @@ const CheckFoodsHome = ({generalFoods, accessToken ,setAccessToken , setUserSign
             />
           ) : (
             <Route
-            
               path="/"
               element={
                 <ShowPickedGFood
@@ -138,7 +159,7 @@ const CheckFoodsHome = ({generalFoods, accessToken ,setAccessToken , setUserSign
             />
           )}
 
-          <Route 
+          <Route
             path="/Restaurants/:id"
             element={
               <CheckRestaurants
