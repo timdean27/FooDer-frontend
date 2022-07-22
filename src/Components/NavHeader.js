@@ -4,7 +4,7 @@ import AddFood from "../Components/Modals/AddFood";
 import LoginPage from "./Modals/LoginPage/LoginPage";
 import LogOut from "./Modals/LogOut";
 import SignUP from "./Modals/SignUP/SignUP";
-const NavHeader = ({accessToken ,setAccessToken , setUserSignedIn}) => {
+const NavHeader = ({accessToken ,setAccessToken , setUserSignedIn , grabFoodDataFunc}) => {
   const [loginData, setLoginData , ] = useState({
     loginName: '',
     email: '',
@@ -40,7 +40,7 @@ const NavHeader = ({accessToken ,setAccessToken , setUserSignedIn}) => {
     <header>
       <nav>
       <button className="nav-addFood-btn" onClick={openNewFoodMoFunc} >Add New Food</button>
-      {showNewFoodModal ? <AddFood accessToken={accessToken} closeNewFoodMoFunc={closeNewFoodMoFunc}/> : null}
+      {showNewFoodModal ? <AddFood accessToken={accessToken} closeNewFoodMoFunc={closeNewFoodMoFunc} grabFoodDataFunc={grabFoodDataFunc}/> : null}
 
       <button className="SignUP-button" onClick={openSignUPMoFunc} >Sign UP</button>
       {showSignUPModal ? <SignUP accessToken={accessToken} closeSignUPMoFunc={closeSignUPMoFunc} setUserSignedIn={setUserSignedIn}/> : null}

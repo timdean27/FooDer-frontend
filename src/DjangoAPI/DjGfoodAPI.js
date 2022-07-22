@@ -21,22 +21,19 @@ const DjGfoodAPI = () => {
     console.log("grabFoodDataFunc ran")
     const REACT_APP_DATABASE_URL_DJANGO = process.env.REACT_APP_DATABASE_URL_DJANGO;
     const loginEndpoint = "gfoods_view_protected/";
-    const opts = {
-      method: "GET",
+    const headers = {
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-    };
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${accessToken}`,
+        },
+      }
 
-    fetch(REACT_APP_DATABASE_URL_DJANGO + loginEndpoint, opts)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("data insisde DjGfood fetch", data);
+    axios.get(REACT_APP_DATABASE_URL_DJANGO + loginEndpoint ,headers)
+    .then(res => {
+      console.log("data insisde DjGfood fetch", res.data);
+      setGeneralFoods(res.data);
+    })
 
-        setGeneralFoods(data);
-      })
-      .catch(console.error);
   };
 
   useEffect(() => {
@@ -46,11 +43,12 @@ const DjGfoodAPI = () => {
   console.log("generalFoods", generalFoods);
   return (
     <div>
-      {generalFoods.code ? (
+      {!accessToken ? (
         <Home
           accessToken={accessToken}
           setAccessToken={setAccessToken}
           setUserSignedIn={setUserSignedIn}
+          grabFoodDataFunc={grabFoodDataFunc}
         ></Home>
       ) : (
         <CheckFoodsHome
