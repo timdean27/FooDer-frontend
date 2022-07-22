@@ -330,9 +330,15 @@ nav .SignUP-button{
 	right:2vw;
 	top: 5px;
 }
+nav .nav-EditDelete-btn{
+	position:absolute;
+	left: 13vw;
+	top: 5px;
+}
+
 nav .nav-addFood-btn{
 	position:absolute;
-	left: 5px;
+	left: 3vw;
 	top: 5px;
 }
 nav button {
@@ -399,8 +405,21 @@ nav button {
     border-radius: 10px;
     padding: 40px;
 }
-/* sign in page */
-
+/* edit delete */
+.editDelete-modal{
+	position: absolute;
+	color:black;
+	left: 5vw;
+	top: 8vh;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 50vw;
+	height: 20vh;
+	background-color: darkblue;
+	opacity: 90%;
+	border-radius: 10px;
+	padding: 40px;
+}
 
 
 /* Home page */
@@ -723,26 +742,36 @@ nav button {
 		  overflow: hidden;
 		  display: flex;
 		  padding: 1px 1px;
-		  height: 7vh;
+		  height: 8vh;
 	  }
 	  nav{
 		  height: 5vh;
 	  }
 	  nav .loginOrOut-button {
 		  position:absolute;
+		  font-size: 12px;
 		  right:18vw;
-		  top: 5px;
+		  top: 1vh;
 		  margin-right: 30px;
 	  }
 	  nav .SignUP-button{
 		  position:absolute;
+		  font-size: 12px;
 		  right:2vw;
-		  top: 5px;
+		  top: 1vh;
 	  }
+	  nav .nav-EditDelete-btn{
+		position:absolute;
+		font-size: 10px;
+		left: 3vw;
+		margin-top: 1vh;
+		top: 3vh;
+	}
 	  nav .nav-addFood-btn{
 		  position:absolute;
-		  left: 5px;
-		  top: 5px;
+		  font-size: 10px;
+		  left: 3vw;
+		  top: 0vh;
 	  }
 	  nav button {
 		  font-size: 16px;
@@ -815,8 +844,21 @@ nav button {
 		border: 2px solid darkblue;
 		border-radius:6px;
 	  }
-	  /* sign in page */
-	  
+	  /* edit delete */
+	  .editDelete-modal{
+		position: absolute;
+		color:black;
+		left: 5vw;
+		top: 8vh;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 50vw;
+		height: 35vh;
+		background-color: darkblue;
+		opacity: 90%;
+		border-radius: 10px;
+		padding: 40px;
+	}
 	  
 	  
 	  /* Home page */
