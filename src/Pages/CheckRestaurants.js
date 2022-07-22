@@ -93,7 +93,7 @@ const CheckRestaurants = ({
     makeAPICall();
     return (
       <div>
-        <h1>Loading #2 Failed API Call</h1>
+        <h1>Loading Restaurants API#2 </h1>
       </div>
     );
   }
