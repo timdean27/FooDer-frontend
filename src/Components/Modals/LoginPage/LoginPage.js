@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
-
+import axios from "axios";
 const LoginPage = ({
   closeLogModalFunc,
   accessToken,
@@ -72,10 +72,10 @@ const LoginPage = ({
           console.log("data from Login page", data);
 
           setAccessToken(data.access);
-          setUserSignedIn(data.user);
+          setUserSignedIn(formInfo.username);
 
           localStorage.setItem("access_token", data.access);
-          localStorage.setItem("user", data.user);
+          localStorage.setItem("user", formInfo.username);
           // redirect here
         }
       });

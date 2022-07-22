@@ -6,10 +6,10 @@ import axios from "axios";
 
 import NavHeader from "../Components/NavHeader";
 
-const Home = ({accessToken ,setAccessToken ,setUserSignedIn, userSignedIn}) => {
+const Home = ({accessToken ,setAccessToken ,setUserSignedIn, userSignedIn , grabFoodDataFunc}) => {
   return (
     <div className="HomePAGE">
-    <NavHeader accessToken={accessToken} setAccessToken={setAccessToken} setUserSignedIn={setUserSignedIn}/>
+    <NavHeader accessToken={accessToken} setAccessToken={setAccessToken} setUserSignedIn={setUserSignedIn} grabFoodDataFunc={grabFoodDataFunc}/>
     <h1 className="Welcome-Header">Welcome to Fooder, Dont know what or where to Eat... Login and lets see if we can fix that</h1>
     </div>
   )

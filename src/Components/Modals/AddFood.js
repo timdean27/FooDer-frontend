@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 
 
-
-const AddFood = ({accessToken, userSignedIn , closeNewFoodMoFunc}) => {
+const AddFood = ({accessToken, userSignedIn , closeNewFoodMoFunc, grabFoodDataFunc}) => {
       const [foodFormData, setfoodFormData] = useState({
         name: '',
         image_url: '',
@@ -18,18 +18,16 @@ const AddFood = ({accessToken, userSignedIn , closeNewFoodMoFunc}) => {
           e.preventDefault()
           const REACT_APP_DATABASE_URL_DJANGO = process.env.REACT_APP_DATABASE_URL_DJANGO;
           const loginEndpoint = "gfoods_create_protected/";
-          const opts = {
-            method: 'POST',
+          const headers = {
             headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${accessToken}`
-            },
-            body: JSON.stringify(foodFormData)
-          }
-          fetch(REACT_APP_DATABASE_URL_DJANGO + loginEndpoint, opts)
-          .then(res => res.json())
-          .then(data => console.log(data))
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${accessToken}`,
+              },
+            }
+          axios.post(REACT_APP_DATABASE_URL_DJANGO + loginEndpoint ,foodFormData,headers)
           .then(closeNewFoodMoFunc())
+          .then(grabFoodDataFunc())
+          
         }
         
         return (
