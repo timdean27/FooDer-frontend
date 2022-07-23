@@ -45,20 +45,14 @@ const DjGfoodAPI = () => {
   return (
     <div>
       {!accessToken ? (
-        <div>
+
         <Home
           accessToken={accessToken}
           setAccessToken={setAccessToken}
           setUserSignedIn={setUserSignedIn}
           grabFoodDataFunc={grabFoodDataFunc}
         ></Home>
-        <NavHeader
-        accessToken={accessToken}
-        setAccessToken={setAccessToken}
-        setUserSignedIn={setUserSignedIn}
-        userSignedIn={userSignedIn}
-        ></NavHeader>
-      </div>
+
       
       ) : (
         <div>
