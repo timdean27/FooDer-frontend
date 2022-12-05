@@ -64,7 +64,7 @@ const CheckRestaurants = ({
     const path = "/businesses/search";
     const ParamsTOBack = {
       method: "GET",
-      url: "https://fooder-backend-yelp-api.herokuapp.com/apiBS",
+      url: "https://yelpapifooder-production.up.railway.app/",
       params: { searchQuery, path },
     };
     await axios
